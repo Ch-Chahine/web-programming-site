@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>History of the internet</title>
-        </head>
-        <body>
-            <header>
-                <h1>History of the Internet</h1>
-            </header>
-            <nav>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/internet-history">History of the Internet</a></li>
-        <li><a href="/web-history">History of the Web</a></li>
-    </ul>
-</nav>
-<main>
+{% extends "base.html" %}
+{% block title %}History of the Internet{% endblock %}
+   
+        
+          
+          
+{% block content %}
+<h1>History of the Internet</h1>
     <section>
         <h2> Internet History Timeline</h2>
         <article>
@@ -176,13 +167,6 @@
     </article>
 
 </section>
+{% endblock %}
 
-</main>
-<footer>
-   
-    <p>Web Programming — built with Flask and deployed on Render.</p>
-    <p>This website is created for educational purposes only, as part of the GIN446 - Web Programming course, School of Engineering, USEK. (Fall 2026-2027)</p>
 
-</footer>
-</body>
-</html>

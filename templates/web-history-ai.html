@@ -1,22 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History of the World Wide Web</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}History of the Web{% endblock %}
+        
 
-    <header>
+
+
+
+
+
+
+
+
+
+{% block content %}
         <h1>History of the World Wide Web</h1>
         <p>
             The World Wide Web is a system that allows people to access and share information
             through the Internet. It connects web pages using hyperlinks. The Web is not the
             Internet itself, but it is a service that works using the Internet.
         </p>
-    </header>
+    
 
-    <main>
 
         <section>
             <h2>Important Milestones</h2>
@@ -129,11 +132,4 @@
 
         </section>
 
-    </main>
-
-    <footer>
-        <p>This website was created for educational purposes as part of the GIN446 Web Programming course, School of Engineering, USEK, Fall 2026-2027.</p>
-    </footer>
-
-</body>
-</html>
+    {% endblock %}

@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History of the Internet</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <header>
+{% block title %}History of the Internet{% endblock %}
+    
+
+
+{% block content %}
         <h1>History of the Internet</h1>
         <p>
             The Internet is a system that connects computers and networks and allows them to
@@ -15,9 +12,9 @@
             through technologies like TCP/IP. It grew from a research network into the worldwide
             Internet we use today.
         </p>
-    </header>
+    
 
-    <main>
+    
 
         <section>
             <h2>Important Milestones</h2>
@@ -139,11 +136,6 @@
             </article>
         </section>
 
-    </main>
+  {% endblock %}
 
-    <footer>
-        <p>This website was created for educational purposes as part of the GIN446 Web Programming course, School of Engineering, USEK, Fall 2026-2027.</p>
-    </footer>
 
-</body>
-</html>
