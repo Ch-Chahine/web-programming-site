@@ -76,6 +76,13 @@ header p {
     font-size: 0.9rem;
 }
 
+/* ---------- Header Logo ---------- */
+header img {
+    display: block;
+    width: 180px;
+    height: auto;
+    margin: 0 auto var(--spacing-medium);
+}
 
 /* ---------- Navigation ---------- */
 nav {
@@ -390,15 +397,18 @@ footer p {
 
 @media (min-width: 600px) {
 
-    /* Header */
-    header h1 {
-        font-size: 1.7rem;
-    }
+   /* Header */
+header img {
+    width: 220px;
+}
 
-    header p {
-        font-size: 1rem;
-    }
+header h1 {
+    font-size: 1.7rem;
+}
 
+header p {
+    font-size: 1rem;
+}
 
     /* Navigation */
     nav ul {
@@ -506,10 +516,14 @@ footer p {
 
 @media (min-width: 900px) {
 
-    /* Header */
-    header h1 {
-        font-size: 2rem;
-    }
+   /* Header */
+header img {
+    width: 260px;
+}
+
+header h1 {
+    font-size: 2rem;
+}
 
 
     /* Navigation */
