@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Web Programming Portfolio{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    {% block head %}{% endblock %}
 </head>
 <body>
     <header>
@@ -20,6 +21,7 @@
         <li><a href="{{ url_for('web_history') }}">Web History</a></li>
         <li><a href="{{ url_for('internet_history_ai') }}">Internet History (AI)</a></li>
         <li><a href="{{ url_for('web_history_ai') }}">Web History (AI)</a></li>
+        <li><a href="{{ url_for('submit_profile') }}">Profile</a></li>
     </ul>
 
 </nav>

@@ -1,0 +1,231 @@
+/* =================================
+   Engineering Student Profile Form
+   ================================= */
+
+
+/* ---------- Main Form ---------- */
+
+form {
+    width: 100%;
+}
+
+
+/* ---------- Main Form Sections ---------- */
+
+form > fieldset {
+    margin: 0 0 var(--spacing-large);
+    padding: var(--spacing-medium);
+
+    background-color: var(--color-white);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+}
+
+form > fieldset > legend {
+    padding: 0 var(--spacing-small);
+
+    color: var(--color-navy);
+
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+
+/* ---------- Labels ---------- */
+
+form label {
+    display: block;
+
+    margin-top: var(--spacing-medium);
+    margin-bottom: var(--spacing-small);
+
+    color: var(--color-text);
+
+    font-weight: bold;
+}
+
+
+/* ---------- Text Fields, Selects and Textarea ---------- */
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="url"],
+form input[type="number"],
+form input[type="date"],
+form input[type="month"],
+form input[type="time"],
+form select,
+form textarea {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding: 0.7rem;
+
+    background-color: var(--color-white);
+    color: var(--color-text);
+
+    font-family: var(--font-main);
+    font-size: 1rem;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+
+    outline: none;
+}
+
+
+/* ---------- Focus Effect ---------- */
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: var(--color-blue);
+    box-shadow: 0 0 0 3px rgba(29, 93, 155, 0.15);
+}
+
+
+/* ---------- Textarea ---------- */
+
+form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* ---------- Multiple Select ---------- */
+
+form select[multiple] {
+    min-height: 150px;
+}
+
+
+/* ---------- Help Text ---------- */
+
+form small {
+    display: block;
+
+    margin-bottom: var(--spacing-small);
+
+    color: var(--color-text-light);
+}
+
+
+/* ---------- Radio and Checkbox Groups ---------- */
+
+form fieldset fieldset {
+    margin-top: var(--spacing-medium);
+    padding: var(--spacing-medium);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+}
+
+form fieldset fieldset legend {
+    padding: 0 var(--spacing-small);
+
+    color: var(--color-navy);
+
+    font-weight: bold;
+}
+
+form input[type="radio"],
+form input[type="checkbox"] {
+    margin-right: var(--spacing-small);
+    margin-top: var(--spacing-small);
+}
+
+form input[type="radio"] + label,
+form input[type="checkbox"] + label {
+    display: inline;
+
+    margin: 0;
+
+    font-weight: normal;
+}
+
+
+/* ---------- Color Input ---------- */
+
+form input[type="color"] {
+    width: 70px;
+    height: 42px;
+
+    padding: 3px;
+
+    background-color: var(--color-white);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+
+    cursor: pointer;
+}
+
+
+/* ---------- Buttons ---------- */
+
+form button {
+    width: 100%;
+
+    margin-top: var(--spacing-medium);
+    padding: 0.75rem var(--spacing-medium);
+
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: bold;
+
+    border-radius: var(--radius-small);
+
+    cursor: pointer;
+}
+
+
+/* ---------- Submit Button ---------- */
+
+form button[type="submit"] {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+
+    border: 1px solid var(--color-navy);
+}
+
+form button[type="submit"]:hover {
+    background-color: var(--color-navy-light);
+}
+
+
+/* ---------- Reset Button ---------- */
+
+form button[type="reset"] {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+
+    border: 1px solid var(--color-navy);
+}
+
+form button[type="reset"]:hover {
+    background-color: var(--color-background);
+}
+
+
+/* =================================
+   Tablet and Desktop
+   600px and Wider
+   ================================= */
+
+@media (min-width: 600px) {
+
+    form > fieldset {
+        padding: var(--spacing-large);
+    }
+
+    form button {
+        width: auto;
+        min-width: 140px;
+
+        margin-right: var(--spacing-small);
+    }
+}

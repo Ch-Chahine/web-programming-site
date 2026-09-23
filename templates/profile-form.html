@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+{% block title %}Engineering Student Profile{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='form_style.css') }}">
+{% endblock %}
+{% block content %}
+<h1>Engineering Student Profile</h1>
+<p>Complete this form to provide information about your 
+academic background, technical skills, internship 
+experience, and Final Year Project preferences..</p>
+
+<form action="{{ url_for('submit_profile') }}" method="post">
+    <fieldset>
+        <legend>1. Personal Information</legend>
+        
+<label for="student_id">Student ID:</label>
+<input type="text" id="student_id" name="student_id"
+       pattern="[0-9]{9}" placeholder="202412345" required>
+
+     <label for="fullname">Full Name:</label>
+<input type="text" id="fullname" name="fullname"
+       placeholder="First Name & Last Name" required>
+
+<label for="email">USEK Email:</label>
+<input type="email" id="email" name="email"
+       placeholder="student@net.usek.edu.lb" required>
+
+       <label for="phone">Mobile Number:</label>
+<input type="tel" id="phone" name="phone"
+       placeholder="+961 70 123456">
+
+       <label for="birthdate">Date of Birth:</label>
+<input type="date" id="birthdate" name="birthdate">
+ 
+<label for="portfolio">GitHub:</label>
+<input type="url" id="portfolio" name="portfolio"
+       placeholder="https://github.com/username">
+
+       <label for="gin446">GIN446 Website:</label>
+<input type="url" id="gin446" name="gin446"
+       placeholder="https://your-site.onrender.com">
+
+    </fieldset>
+<fieldset>
+    <legend>2. Academic Information</legend>
+
+    <label for="major">Engineering Major:</label>
+<select id="major" name="major" required>
+    <option value="" disabled selected>-- Select your major --</option>
+    <option value="Computer Engineering">Computer Engineering</option>
+    <option value="Electrical Engineering">Electrical Engineering</option>
+    <option value="Biomedical Engineering">Biomedical Engineering</option>
+    <option value="Telecommunications Engineering">Telecommunications Engineering</option>
+</select>
+
+<label for="gpa">Current GPA / 100:</label>
+<input type="number" id="gpa" name="gpa"
+       min="40" max="100" step="0.01" placeholder="80.00">
+
+       <label for="credits">Credits Completed:</label>
+<input type="number" id="credits" name="credits"
+       min="0" max="148" step="1">
+
+   <fieldset>
+    <legend>Expected Graduation:</legend>
+
+    <input type="radio" id="spring" name="graduation" value="Spring">
+    <label for="spring">Spring</label>
+
+    <input type="radio" id="summer" name="graduation" value="Summer">
+    <label for="summer">Summer</label>
+
+    <input type="radio" id="fall" name="graduation" value="Fall">
+    <label for="fall">Fall</label>
+</fieldset>
+
+<label for="graduation_month">Expected Graduation Month:</label>
+<input type="month" id="graduation_month" name="graduation_month">
+
+<fieldset>
+    <legend>Internship Completed:</legend>
+
+    <input type="radio" id="internship_yes" name="internship_completed" value="Yes">
+    <label for="internship_yes">Yes</label>
+
+    <input type="radio" id="internship_no" name="internship_completed" value="No">
+    <label for="internship_no">No</label>
+</fieldset>
+</fieldset>
+
+<fieldset>
+    <legend>3. Technical Background</legend>
+
+    <fieldset>
+    <legend>Technical Skills:</legend>
+
+    <input type="checkbox" id="programming" name="skills" value="Programming">
+    <label for="programming">Programming</label>
+
+    <input type="checkbox" id="embedded_systems" name="skills" value="Embedded Systems">
+    <label for="embedded_systems">Embedded Systems</label>
+
+    <input type="checkbox" id="electronics" name="skills" value="Electronics">
+    <label for="electronics">Electronics</label>
+
+    <input type="checkbox" id="computer_networks" name="skills" value="Computer Networks">
+    <label for="computer_networks">Computer Networks</label>
+
+    <input type="checkbox" id="telecommunications" name="skills" value="Telecommunications">
+    <label for="telecommunications">Telecommunications</label>
+
+    <input type="checkbox" id="biomedical_instrumentation" name="skills" value="Biomedical Instrumentation">
+    <label for="biomedical_instrumentation">Biomedical Instrumentation</label>
+
+    <input type="checkbox" id="ai_ml" name="skills" value="Artificial Intelligence / Machine Learning">
+    <label for="ai_ml">Artificial Intelligence / Machine Learning</label>
+
+    <input type="checkbox" id="signal_processing" name="skills" value="Signal Processing">
+    <label for="signal_processing">Signal Processing</label>
+
+    </fieldset>
+
+    <label for="language">Primary Programming Language:</label>
+<input type="text" id="language" name="language"
+       list="languages" placeholder="Select or type a language">
+
+<datalist id="languages">
+    <option value="Python">
+    <option value="Java">
+    <option value="C">
+    <option value="C++">
+    <option value="JavaScript">
+    <option value="MATLAB">
+</datalist>
+
+<label for="software">Engineering Software Used:</label>
+<small>Hold Ctrl (Windows) or Cmd (Mac) to select multiple.</small>
+<select id="software" name="software" multiple>
+    <option value="MATLAB">MATLAB</option>
+    <option value="Multisim">Multisim</option>
+    <option value="AutoCAD">AutoCAD</option>
+    <option value="SolidWorks">SolidWorks</option>
+    <option value="LabVIEW">LabVIEW</option>
+    <option value="Cisco Packet Tracer">Cisco Packet Tracer</option>
+</select>
+</fieldset>
+
+<fieldset>
+    <legend>4. Final Year Project Preferences</legend>
+    <label for="project_title">Proposed Project Title:</label>
+<input type="text" id="project_title" name="project_title"
+       maxlength="80" placeholder="Short descriptive title">
+
+       <label for="project_area">Preferred Project Area:</label>
+
+<select id="project_area" name="project_area">
+    <option value="" disabled selected>-- Select project area --</option>
+
+    <optgroup label="Computer Engineering">
+        <option value="Software Engineering">Software Engineering</option>
+        <option value="Cybersecurity">Cybersecurity</option>
+        <option value="Embedded Systems">Embedded Systems</option>
+    </optgroup>
+
+    <optgroup label="Electrical Engineering">
+        <option value="Power Systems">Power Systems</option>
+        <option value="Renewable Energy">Renewable Energy</option>
+        <option value="Control Systems">Control Systems</option>
+    </optgroup>
+
+    <optgroup label="Biomedical Engineering">
+        <option value="Medical Devices">Medical Devices</option>
+        <option value="Biomedical Imaging">Biomedical Imaging</option>
+        <option value="Health Informatics">Health Informatics</option>
+    </optgroup>
+
+    <optgroup label="Telecommunications Engineering">
+        <option value="Wireless Networks">Wireless Networks</option>
+        <option value="5G/6G">5G/6G</option>
+        <option value="Network Security">Network Security</option>
+    </optgroup>
+</select>
+<label for="description">Brief Project Description:</label>
+<textarea id="description" name="description"
+          maxlength="500"
+          placeholder="Describe the problem, your proposed solution, and the main technologies you expect to use."></textarea>
+
+          <label for="team_size">Preferred Team Size:</label>
+<input type="number" id="team_size" name="team_size"
+       min="2" max="6" step="1">
+
+       <label for="project_color">Preferred Project Color:</label>
+<input type="color" id="project_color" name="project_color">
+
+<label for="meeting_date">Preferred Meeting Date:</label>
+<input type="date" id="meeting_date" name="meeting_date">
+<label for="meeting_time">Preferred Meeting Time:</label>
+<input type="time" id="meeting_time" name="meeting_time">
+
+</fieldset>
+<input type="checkbox" id="confirmation" name="confirmation" required>
+<label for="confirmation">
+    I confirm that the information provided is accurate.
+</label>
+<button type="submit">Submit Profile</button>
+<button type="reset">Clear Form</button>
+
+<input type="hidden" name="form_version" value="2026-2027">
+
+</form>
+ {% endblock %}
