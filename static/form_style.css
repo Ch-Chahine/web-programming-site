@@ -1,231 +1,822 @@
-/* =================================
-   Engineering Student Profile Form
-   ================================= */
+/* ==================================================
+   ENGINEERING STUDENT PROFILE
+   Creative Engineering Dashboard
+   Mobile First
+   ================================================== */
 
 
-/* ---------- Main Form ---------- */
+/* ==================================================
+   PROFILE INTRODUCTION
+   ================================================== */
 
-form {
-    width: 100%;
-}
+main > p {
+    max-width: 760px;
 
-
-/* ---------- Main Form Sections ---------- */
-
-form > fieldset {
-    margin: 0 0 var(--spacing-large);
-    padding: var(--spacing-medium);
-
-    background-color: var(--color-white);
-
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-small);
-}
-
-form > fieldset > legend {
-    padding: 0 var(--spacing-small);
-
-    color: var(--color-navy);
-
-    font-size: 1.15rem;
-    font-weight: bold;
-}
-
-
-/* ---------- Labels ---------- */
-
-form label {
-    display: block;
-
-    margin-top: var(--spacing-medium);
-    margin-bottom: var(--spacing-small);
-
-    color: var(--color-text);
-
-    font-weight: bold;
-}
-
-
-/* ---------- Text Fields, Selects and Textarea ---------- */
-
-form input[type="text"],
-form input[type="email"],
-form input[type="tel"],
-form input[type="url"],
-form input[type="number"],
-form input[type="date"],
-form input[type="month"],
-form input[type="time"],
-form select,
-form textarea {
-    display: block;
-
-    width: 100%;
-    max-width: 100%;
-
-    padding: 0.7rem;
-
-    background-color: var(--color-white);
-    color: var(--color-text);
-
-    font-family: var(--font-main);
-    font-size: 1rem;
-
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-small);
-
-    outline: none;
-}
-
-
-/* ---------- Focus Effect ---------- */
-
-form input:focus,
-form select:focus,
-form textarea:focus {
-    border-color: var(--color-blue);
-    box-shadow: 0 0 0 3px rgba(29, 93, 155, 0.15);
-}
-
-
-/* ---------- Textarea ---------- */
-
-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-
-/* ---------- Multiple Select ---------- */
-
-form select[multiple] {
-    min-height: 150px;
-}
-
-
-/* ---------- Help Text ---------- */
-
-form small {
-    display: block;
-
-    margin-bottom: var(--spacing-small);
+    margin: -1rem 0 2.25rem;
 
     color: var(--color-text-light);
+
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 
-/* ---------- Radio and Checkbox Groups ---------- */
+/* ==================================================
+   PROFILE SECTION NAVIGATION
+   ================================================== */
 
-form fieldset fieldset {
-    margin-top: var(--spacing-medium);
-    padding: var(--spacing-medium);
+.profile-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    margin: 0 0 3.5rem;
+
+    background: var(--color-white);
 
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-small);
+    border-top: 4px solid var(--color-blue);
+
+    box-shadow: 0 12px 30px rgba(10, 25, 41, 0.08);
 }
 
-form fieldset fieldset legend {
-    padding: 0 var(--spacing-small);
+.profile-nav a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 55px;
+
+    padding: 1rem 1.25rem;
 
     color: var(--color-navy);
 
-    font-weight: bold;
+    border-bottom: 1px solid var(--color-border);
+
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        padding-left 0.25s ease;
 }
 
-form input[type="radio"],
-form input[type="checkbox"] {
-    margin-right: var(--spacing-small);
-    margin-top: var(--spacing-small);
+.profile-nav a:last-child {
+    border-bottom: 0;
 }
 
-form input[type="radio"] + label,
-form input[type="checkbox"] + label {
+.profile-nav a::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 0.8rem;
+
+    background: var(--color-blue);
+
+    transform: rotate(45deg);
+
+    transition: transform 0.25s ease;
+}
+
+.profile-nav a:hover {
+    padding-left: 1.5rem;
+
+    color: var(--color-blue);
+
+    background: #f3f7ff;
+}
+
+.profile-nav a:hover::before {
+    transform: rotate(135deg);
+}
+
+
+/* ==================================================
+   FORM
+   ================================================== */
+
+form {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0;
+}
+
+
+/* ==================================================
+   MAIN FORM SECTIONS
+   ================================================== */
+
+form > fieldset {
+    position: relative;
+
+    min-width: 0;
+
+    margin: 0 0 4rem;
+
+    padding: 2.25rem 1.25rem 1.5rem;
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+    border-top: 5px solid var(--color-navy);
+
+    box-shadow: 0 12px 35px rgba(10, 25, 41, 0.07);
+}
+
+
+/* Main legends */
+
+form > fieldset > legend {
+    max-width: calc(100% - 1rem);
+
+    padding: 0.5rem 1rem;
+
+    background: var(--color-navy);
+
+    color: var(--color-white);
+
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.3;
+
+    letter-spacing: -0.01em;
+}
+
+
+/* ==================================================
+   SECTION IDENTITIES
+   ================================================== */
+
+
+/* ---------- 1. Personal ---------- */
+
+#personal {
+    border-top-color: var(--color-blue);
+}
+
+#personal > legend {
+    background: var(--color-blue);
+}
+
+
+/* ---------- 2. Academic ---------- */
+
+#academic {
+    border-top-color: var(--color-navy);
+}
+
+#academic > legend {
+    background: var(--color-navy);
+}
+
+
+/* ---------- 3. Technical ---------- */
+
+#technical {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #ffffff 75%,
+            #f1f6ff 100%
+        );
+
+    border-top-color: var(--color-blue);
+}
+
+#technical > legend {
+    background: var(--color-blue);
+}
+
+
+/* ---------- 4. Final Year Project ---------- */
+
+#project {
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f7f9fc
+        );
+
+    border-top-color: var(--color-navy);
+}
+
+#project > legend {
+    background: var(--color-navy);
+}
+
+
+/* ==================================================
+   LABELS
+   ================================================== */
+
+form > fieldset > label,
+form > fieldset > small + label {
+    display: block;
+
+    margin: 1.25rem 0 0.4rem;
+
+    color: var(--color-navy);
+
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+
+/* ==================================================
+   TEXT INPUTS / SELECTS / TEXTAREA
+   ================================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="month"],
+input[type="number"],
+input[type="time"],
+select,
+textarea {
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+
+    padding: 0.8rem 0.9rem;
+
+    background: var(--color-white);
+
+    color: var(--color-text);
+
+    border: 1px solid #cbd5df;
+    border-left: 3px solid #cbd5df;
+
+    border-radius: var(--radius-small);
+
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+/* Placeholder */
+
+input::placeholder,
+textarea::placeholder {
+    color: #8996a3;
+}
+
+
+/* Focus */
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="number"]:focus,
+input[type="time"]:focus,
+select:focus,
+textarea:focus {
+    background: #fbfdff;
+
+    border-color: var(--color-blue);
+    border-left-color: var(--color-blue);
+
+    box-shadow:
+        0 0 0 3px rgba(21, 94, 239, 0.12);
+}
+
+
+/* ==================================================
+   TEXTAREA
+   ================================================== */
+
+textarea {
+    min-height: 150px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+/* ==================================================
+   MULTIPLE SELECT
+   ================================================== */
+
+select[multiple] {
+    min-height: 180px;
+
+    padding: 0.5rem;
+}
+
+select[multiple] option {
+    padding: 0.55rem 0.6rem;
+}
+
+
+/* ==================================================
+   HELP TEXT
+   ================================================== */
+
+small {
+    display: block;
+
+    margin: -0.15rem 0 0.55rem;
+
+    color: var(--color-text-light);
+
+    font-size: 0.78rem;
+}
+
+
+/* ==================================================
+   NESTED FIELDSETS
+   Radio / Checkbox Groups
+   ================================================== */
+
+form > fieldset fieldset {
+    position: relative;
+
+    margin: 1.75rem 0;
+
+    padding: 1.4rem 1rem 1rem;
+
+    background: #f7f9fc;
+
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-blue);
+
+    border-radius: 0;
+}
+
+
+/* Nested legends */
+
+form > fieldset fieldset legend {
+    padding: 0 0.6rem;
+
+    background: #f7f9fc;
+
+    color: var(--color-navy);
+
+    font-size: 0.85rem;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+/* ==================================================
+   RADIO BUTTONS AND CHECKBOXES
+   ================================================== */
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+
+    margin: 0 0.4rem 0.7rem 0;
+
+    accent-color: var(--color-blue);
+
+    vertical-align: middle;
+
+    cursor: pointer;
+}
+
+
+/* Labels next to radio / checkbox */
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+    display: inline-block;
+
+    margin: 0 1rem 0.7rem 0;
+
+    color: var(--color-text);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    vertical-align: middle;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   TECHNICAL SKILLS GROUP
+   ================================================== */
+
+#technical fieldset {
+    background:
+        linear-gradient(
+            90deg,
+            #f7f9fc,
+            #f1f6ff
+        );
+}
+
+
+/* ==================================================
+   COLOR INPUT
+   ================================================== */
+
+input[type="color"] {
+    display: block;
+
+    width: 90px;
+    height: 48px;
+
+    padding: 4px;
+
+    background: var(--color-white);
+
+    border: 1px solid #cbd5df;
+
+    border-radius: var(--radius-small);
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   CONFIRMATION
+   ================================================== */
+
+form > input[type="checkbox"]#confirmation {
+    width: 18px;
+    height: 18px;
+
+    margin: 0 0.5rem 1.5rem 0;
+
+    accent-color: var(--color-blue);
+}
+
+form > input[type="checkbox"]#confirmation + label {
     display: inline;
 
     margin: 0;
 
-    font-weight: normal;
-}
-
-
-/* ---------- Color Input ---------- */
-
-form input[type="color"] {
-    width: 70px;
-    height: 42px;
-
-    padding: 3px;
-
-    background-color: var(--color-white);
-
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-small);
-
-    cursor: pointer;
-}
-
-
-/* ---------- Buttons ---------- */
-
-form button {
-    width: 100%;
-
-    margin-top: var(--spacing-medium);
-    padding: 0.75rem var(--spacing-medium);
-
-    font-family: var(--font-main);
-    font-size: 1rem;
-    font-weight: bold;
-
-    border-radius: var(--radius-small);
-
-    cursor: pointer;
-}
-
-
-/* ---------- Submit Button ---------- */
-
-form button[type="submit"] {
-    background-color: var(--color-navy);
-    color: var(--color-white);
-
-    border: 1px solid var(--color-navy);
-}
-
-form button[type="submit"]:hover {
-    background-color: var(--color-navy-light);
-}
-
-
-/* ---------- Reset Button ---------- */
-
-form button[type="reset"] {
-    background-color: var(--color-white);
     color: var(--color-navy);
 
-    border: 1px solid var(--color-navy);
-}
-
-form button[type="reset"]:hover {
-    background-color: var(--color-background);
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
 
-/* =================================
-   Tablet and Desktop
-   600px and Wider
-   ================================= */
+/* ==================================================
+   BUTTONS
+   ================================================== */
+
+button {
+    min-height: 48px;
+
+    margin-top: 1.5rem;
+    margin-right: 0.65rem;
+
+    padding: 0.8rem 1.5rem;
+
+    border-radius: var(--radius-small);
+
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Submit */
+
+button[type="submit"] {
+    background: var(--color-navy);
+
+    color: var(--color-white);
+
+    border: 2px solid var(--color-navy);
+
+    box-shadow: 5px 5px 0 var(--color-blue);
+}
+
+button[type="submit"]:hover {
+    transform: translate(-2px, -2px);
+
+    background: var(--color-blue);
+
+    border-color: var(--color-blue);
+
+    box-shadow: 7px 7px 0 var(--color-navy);
+}
+
+
+/* Reset */
+
+button[type="reset"] {
+    background: transparent;
+
+    color: var(--color-navy);
+
+    border: 2px solid var(--color-navy);
+}
+
+button[type="reset"]:hover {
+    transform: translateY(-2px);
+
+    background: #eef4ff;
+
+    color: var(--color-blue);
+
+    border-color: var(--color-blue);
+}
+
+
+/* ==================================================
+   SECTION ANCHOR POSITION
+   ================================================== */
+
+#personal,
+#academic,
+#technical,
+#project {
+    scroll-margin-top: 2rem;
+}
+
+
+/* ==================================================
+   TABLET
+   ================================================== */
 
 @media (min-width: 600px) {
 
-    form > fieldset {
-        padding: var(--spacing-large);
+    /* ---------- Profile Navigation ---------- */
+
+    .profile-nav {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    form button {
-        width: auto;
-        min-width: 140px;
+    .profile-nav a {
+        border-right: 1px solid var(--color-border);
+    }
 
-        margin-right: var(--spacing-small);
+
+    /* ---------- Form Sections ---------- */
+
+    form > fieldset {
+        padding:
+            2.75rem
+            2rem
+            2rem;
+    }
+
+    form > fieldset > legend {
+        padding: 0.55rem 1.25rem;
+
+        font-size: 1.15rem;
+    }
+
+
+    /* ---------- Nested Groups ---------- */
+
+    form > fieldset fieldset {
+        padding:
+            1.6rem
+            1.4rem
+            1.1rem;
+    }
+
+
+    /* ---------- Buttons ---------- */
+
+    button {
+        padding-left: 1.8rem;
+        padding-right: 1.8rem;
+    }
+}
+
+
+/* ==================================================
+   DESKTOP
+   ================================================== */
+
+@media (min-width: 900px) {
+
+    /* ==================================================
+       PROFILE NAVIGATION
+       ================================================== */
+
+    .profile-nav {
+        grid-template-columns: repeat(4, 1fr);
+
+        margin-bottom: 4.5rem;
+    }
+
+    .profile-nav a {
+        justify-content: center;
+
+        min-height: 65px;
+
+        padding: 1rem;
+
+        border-right: 1px solid var(--color-border);
+        border-bottom: 0;
+    }
+
+    .profile-nav a:last-child {
+        border-right: 0;
+    }
+
+    .profile-nav a:hover {
+        padding-left: 1rem;
+    }
+
+
+    /* ==================================================
+       FORM
+       ================================================== */
+
+    form {
+        max-width: 1080px;
+
+        margin: 0 auto;
+    }
+
+
+    /* ==================================================
+       MAIN FIELDSETS
+       ================================================== */
+
+    form > fieldset {
+        margin-bottom: 5rem;
+
+        padding:
+            3rem
+            3rem
+            2.5rem;
+    }
+
+    form > fieldset > legend {
+        font-size: 1.25rem;
+    }
+
+
+    /* ==================================================
+       PERSONAL
+       Wide clean section
+       ================================================== */
+
+    #personal {
+        width: 92%;
+
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+
+    /* ==================================================
+       ACADEMIC
+       Slight right offset
+       ================================================== */
+
+    #academic {
+        width: 92%;
+
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+
+    /* ==================================================
+       TECHNICAL
+       Full-width technical section
+       ================================================== */
+
+    #technical {
+        width: 100%;
+
+        border-left: 5px solid var(--color-blue);
+    }
+
+
+    /* ==================================================
+       FINAL YEAR PROJECT
+       Strong closing section
+       ================================================== */
+
+    #project {
+        width: 95%;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        border-right: 5px solid var(--color-navy);
+    }
+
+
+    /* ==================================================
+       INPUT WIDTH
+       Keep fields readable instead of stretching too far
+       ================================================== */
+
+    form > fieldset > input[type="text"],
+    form > fieldset > input[type="email"],
+    form > fieldset > input[type="tel"],
+    form > fieldset > input[type="url"],
+    form > fieldset > input[type="date"],
+    form > fieldset > input[type="month"],
+    form > fieldset > input[type="number"],
+    form > fieldset > input[type="time"],
+    form > fieldset > select:not([multiple]) {
+        max-width: 720px;
+    }
+
+
+    /* Description can stay wider */
+
+    #description {
+        max-width: 850px;
+    }
+
+
+    /* Multiple software selection */
+
+    #software {
+        max-width: 720px;
+    }
+
+
+    /* ==================================================
+       NESTED FIELDSETS
+       ================================================== */
+
+    form > fieldset fieldset {
+        max-width: 850px;
+
+        padding:
+            1.8rem
+            1.6rem
+            1.2rem;
+    }
+
+
+    /* Technical skills gets more room */
+
+    #technical > fieldset {
+        max-width: none;
+    }
+
+
+    /* ==================================================
+       BUTTON AREA
+       ================================================== */
+
+    button {
+        min-width: 150px;
+    }
+}
+
+
+/* ==================================================
+   LARGE DESKTOP
+   ================================================== */
+
+@media (min-width: 1200px) {
+
+    form > fieldset {
+        padding:
+            3.25rem
+            3.5rem
+            2.75rem;
+    }
+
+    .profile-nav a {
+        font-size: 0.82rem;
     }
 }

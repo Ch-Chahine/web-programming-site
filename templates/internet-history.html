@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block title %}History of the Internet{% endblock %}
    
         
@@ -6,8 +7,22 @@
           
 {% block content %}
 <h1>History of the Internet</h1>
-    <section>
-        <h2> Internet History Timeline</h2>
+<section id="overview">
+    <h2>Overview</h2>
+    <p>
+        The Internet developed through many important stages, from early computer
+        networks to the global communication system used today.
+    </p>
+</section>
+
+<nav class="section-nav">
+    <a href="#overview">Overview</a>
+    <a href="#history">History</a>
+    <a href="#technologies">Key Technologies</a>
+</nav>
+
+    <section id="history">
+    <h2>Internet History</h2>
         <article>
             <h3>1969 — ARPANET</h3>
             <p>
@@ -133,8 +148,8 @@
 
 </section>
 
-<section>
-    <h2> Key Internet Technologies </h2>
+<section id="technologies">
+    <h2>Key Internet Technologies</h2>
     <article>
     <h3>Packet Switching</h3>
     <p>

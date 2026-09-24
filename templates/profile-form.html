@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+
 {% block title %}Engineering Student Profile{% endblock %}
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='form_style.css') }}">
@@ -7,11 +8,17 @@
 <h1>Engineering Student Profile</h1>
 <p>Complete this form to provide information about your 
 academic background, technical skills, internship 
-experience, and Final Year Project preferences..</p>
+experience, and Final Year Project preferences.</p>
+<nav class="profile-nav">
+    <a href="#personal">Personal</a>
+    <a href="#academic">Academic</a>
+    <a href="#technical">Technical</a>
+    <a href="#project">Final Year Project</a>
+</nav>
 
 <form action="{{ url_for('submit_profile') }}" method="post">
-    <fieldset>
-        <legend>1. Personal Information</legend>
+    <fieldset id="personal">
+    <legend>1. Personal Information</legend>
         
 <label for="student_id">Student ID:</label>
 <input type="text" id="student_id" name="student_id"
@@ -41,7 +48,7 @@ experience, and Final Year Project preferences..</p>
        placeholder="https://your-site.onrender.com">
 
     </fieldset>
-<fieldset>
+<fieldset id="academic">
     <legend>2. Academic Information</legend>
 
     <label for="major">Engineering Major:</label>
@@ -61,7 +68,8 @@ experience, and Final Year Project preferences..</p>
 <input type="number" id="credits" name="credits"
        min="0" max="148" step="1">
 
-   <fieldset>
+   <fieldset >
+  
     <legend>Expected Graduation:</legend>
 
     <input type="radio" id="spring" name="graduation" value="Spring">
@@ -87,10 +95,8 @@ experience, and Final Year Project preferences..</p>
     <label for="internship_no">No</label>
 </fieldset>
 </fieldset>
-
-<fieldset>
+<fieldset id="technical">
     <legend>3. Technical Background</legend>
-
     <fieldset>
     <legend>Technical Skills:</legend>
 
@@ -145,7 +151,7 @@ experience, and Final Year Project preferences..</p>
 </select>
 </fieldset>
 
-<fieldset>
+<fieldset id="project">
     <legend>4. Final Year Project Preferences</legend>
     <label for="project_title">Proposed Project Title:</label>
 <input type="text" id="project_title" name="project_title"
