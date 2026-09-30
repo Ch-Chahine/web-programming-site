@@ -1,0 +1,424 @@
+/* =========================================
+   JAVASCRIPT QUIZ
+   Engineering Exam Design
+   ========================================= */
+
+
+/* ---------- Quiz Container ---------- */
+
+.container {
+    position: relative;
+
+    width: 100%;
+    margin: 0;
+    padding: 2.25rem 1.25rem 1.5rem;
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+    border-top: 5px solid var(--color-navy);
+
+    box-shadow: 0 12px 35px rgba(10, 25, 41, 0.07);
+}
+
+
+/* Blue engineering accent */
+
+.container::before {
+    content: "";
+
+    position: absolute;
+    top: -5px;
+    right: 0;
+
+    width: 100px;
+    height: 5px;
+
+    background: var(--color-blue);
+}
+
+
+/* ---------- Quiz Title ---------- */
+
+.container h1 {
+    position: relative;
+
+    margin: 0 0 2.5rem;
+    padding-bottom: 1.1rem;
+
+    color: var(--ink);
+
+    font-size: 2.15rem;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+}
+
+.container h1::before {
+    content: "GIN446 / WEB PROGRAMMING";
+
+    display: block;
+
+    margin-bottom: 0.7rem;
+
+    color: var(--color-blue);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.container h1::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 105px;
+    height: 4px;
+
+    background: var(--color-blue);
+}
+
+
+/* ---------- Progress ---------- */
+
+#progress {
+    display: inline-block;
+
+    margin-bottom: 1.5rem;
+    padding: 0.45rem 0.75rem;
+
+    background: var(--blue-soft);
+    color: var(--color-blue);
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+
+/* ---------- Question ---------- */
+
+#questionText {
+    margin: 0 0 2rem;
+
+    color: var(--color-navy);
+
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+
+/* ---------- Answer Choices ---------- */
+
+.choice {
+    display: flex;
+    align-items: center;
+
+    margin: 0.8rem 0;
+    padding: 1rem;
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-border);
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.choice:hover {
+    background: var(--blue-pale);
+
+    border-color: #aac3ed;
+    border-left-color: var(--color-blue);
+
+    transform: translateX(3px);
+}
+
+.choice input[type="radio"] {
+    width: 17px;
+    height: 17px;
+
+    margin: 0 0.8rem 0;
+
+    accent-color: var(--color-blue);
+
+    cursor: pointer;
+}
+
+.choice:has(input[type="radio"]:checked) {
+    background: var(--blue-soft);
+
+    border-color: var(--color-blue);
+    border-left-color: var(--color-blue);
+
+    color: var(--color-navy);
+
+    font-weight: 700;
+}
+
+
+/* ---------- Navigation ---------- */
+
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.7rem;
+
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+
+    border-top: 1px solid var(--color-border);
+}
+
+
+/* ---------- Buttons ---------- */
+
+.navigation button,
+.submit {
+    min-height: 48px;
+
+    padding: 0.8rem 1.5rem;
+
+    border-radius: var(--radius-small);
+
+    font-family: var(--font-main);
+    font-size: 0.88rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* First + Previous */
+
+#firstBtn,
+#previousBtn {
+    background: var(--color-white);
+
+    color: var(--color-navy);
+
+    border: 2px solid var(--color-navy);
+}
+
+#firstBtn:hover,
+#previousBtn:hover {
+    background: var(--blue-pale);
+
+    color: var(--color-blue);
+
+    border-color: var(--color-blue);
+}
+
+
+/* Next + Last */
+
+#nextBtn,
+#lastBtn {
+    background: var(--color-blue);
+
+    color: var(--color-white);
+
+    border: 2px solid var(--color-blue);
+}
+
+#nextBtn:hover,
+#lastBtn:hover {
+    background: var(--color-navy);
+
+    border-color: var(--color-navy);
+}
+
+
+/* ---------- Disabled Navigation ---------- */
+
+.navigation button:disabled {
+    background: #eef1f4;
+
+    color: #9aa7b5;
+
+    border-color: var(--color-border);
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ---------- Focus ---------- */
+
+.navigation button:focus-visible,
+.submit:focus-visible {
+    outline: 3px solid rgba(21, 94, 239, 0.2);
+    outline-offset: 2px;
+}
+
+
+/* ---------- Submit ---------- */
+
+.submit {
+    width: 100%;
+
+    margin-top: 1.5rem;
+
+    background: var(--color-navy);
+
+    color: var(--color-white);
+
+    border: 2px solid var(--color-navy);
+
+    box-shadow: 5px 5px 0 var(--color-blue);
+}
+
+.submit:hover {
+    transform: translate(-2px, -2px);
+
+    background: var(--color-blue);
+
+    border-color: var(--color-blue);
+
+    box-shadow: 7px 7px 0 var(--color-navy);
+}
+
+
+/* ---------- Results ---------- */
+
+#resultsPanel {
+    display: none;
+}
+
+#resultsPanel h2 {
+    margin-top: 0;
+
+    color: var(--color-navy);
+
+    font-size: 1.6rem;
+}
+
+#scoreText,
+#percentageText,
+#performanceText {
+    margin: 0.7rem 0;
+    padding: 0.9rem 1rem;
+
+    background: var(--blue-pale);
+
+    border-left: 4px solid var(--color-blue);
+
+    color: var(--color-text);
+
+    font-weight: 700;
+}
+
+
+/* ---------- Correction ---------- */
+
+#correction {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+
+    background: var(--color-background);
+
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-navy);
+
+    color: var(--color-text);
+
+    white-space: pre-wrap;
+
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    line-height: 1.7;
+
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (min-width: 600px) {
+
+    .container {
+        padding: 2.75rem 2rem 2rem;
+    }
+
+    .container h1 {
+        font-size: 2.75rem;
+    }
+
+    .navigation {
+        flex-wrap: nowrap;
+    }
+
+    .navigation button {
+        flex: 1;
+    }
+
+    .choice {
+        padding: 1.1rem 1.25rem;
+    }
+}
+
+
+/* =========================================
+   DESKTOP
+   ========================================= */
+
+@media (min-width: 900px) {
+
+    .container {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 3rem 3rem 2.5rem;
+    }
+
+    .container h1 {
+        font-size: 3.4rem;
+    }
+
+    #progress {
+        margin-top: 0.5rem;
+    }
+
+    #questionText {
+        font-size: 1.4rem;
+    }
+
+    .choice {
+        padding: 1.2rem 1.4rem;
+    }
+
+    .navigation button {
+        min-width: 150px;
+    }
+}
+
+
+/* =========================================
+   LARGE DESKTOP
+   ========================================= */
+
+@media (min-width: 1200px) {
+
+    .container {
+        padding: 3.25rem 3.5rem 2.75rem;
+    }
+}
