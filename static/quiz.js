@@ -4,70 +4,184 @@
 const questions = [ // Populate this array with question objects as needed.
 // Each question object should have the following structure:
   {
-    question:
-       "Which keyword declares a block-scoped variable that can later be reassigned?",
-    choices: ["var", "let", "const", "static"],
-    answer: 1,
-    explanation:
-      "let declares a block-scoped variable whose value may later be reassigned.",
-  },
-  {
-    
-  question: "Which JavaScript operator checks if both the value and type are equal?",
-  choices: ["=", "==", "===", "!="],
-  answer: 2,
-  explanation: "The === operator checks both the value and the type."
+     question: "In which year was ARPANET first established?",
+        choices: [
+            "1965",
+            "1969",
+            "1973",
+            "1983"
+        ],
+        answer: 1,
+        explanation: "ARPANET was established in 1969 and became an important starting point for the development of the Internet."
+    },
 
+    {
+        question: "Who sent the first networked email using ARPANET?",
+        choices: [
+            "Tim Berners-Lee",
+            "Vint Cerf",
+            "Ray Tomlinson",
+            "Bob Kahn"
+        ],
+        answer: 2,
+        explanation: "Ray Tomlinson sent the first networked email in 1971 using ARPANET."
+    },
 
-  },
-  {
-  question: "What is the index of the first element in a JavaScript array?",
-  choices: ["0", "1", "-1", "2"],
-  answer: 0,
-  explanation: "JavaScript arrays are zero-indexed, so the first element is at index 0."
-},
-{
-  question: "Which statement is used to execute code only when a condition is true?",
-  choices: ["for", "if", "const", "return"],
-  answer: 1,
-  explanation: "The if statement executes a block of code when its condition is true."
-},
-{
-  question: "Which loop is commonly used when you know how many times you want to repeat something?",
-  choices: ["if", "for", "const", "switch"],
-  answer: 1,
-  explanation: "A for loop is commonly used when the number of repetitions is known."
-},
-{
-  question: "What does the return statement do inside a function?",
-  choices: ["Repeats the function", "Stops the function and returns a value", "Creates a variable", "Creates a loop"],
-  answer: 1,
-  explanation: "The return statement stops the function and sends a value back."
-},
-{
-  question: "How do you access the name property of an object called student?",
-  choices: ["student.name", "student[name]", "student->name", "name.student"],
-  answer: 0,
-  explanation: "Dot notation can be used to access an object's property, such as student.name."
-},
-{
-  question: "Which of the following values is falsy in JavaScript?",
-  choices: ["Hello", "1", "0", "JavaScript"],
-  answer: 2,
-  explanation: "The number 0 is a falsy value in JavaScript."
-},
-{
-  question: "What does the length property of an array return?",
-  choices: ["The first element", "The last index", "The number of elements", "The array name"],
-  answer: 2,
-  explanation: "The length property returns the number of elements in an array."
-},
-{
-  question: "What is a parameter in a JavaScript function?",
-  choices: ["A value received by a function", "A type of loop", "An array index", "A comparison operator"],
-  answer: 0,
-  explanation: "A parameter is a variable used by a function to receive a value."
-},
+    {
+        question: "What happened to ARPANET in 1983?",
+        choices: [
+            "It was replaced by the World Wide Web",
+            "It changed from NCP to TCP/IP",
+            "It was shut down",
+            "It introduced DNS"
+        ],
+        answer: 1,
+        explanation: "On January 1, 1983, ARPANET changed from NCP to TCP/IP."
+    },
+
+    {
+        question: "What was the main purpose of DNS?",
+        choices: [
+            "To create web pages",
+            "To send emails",
+            "To connect domain names with IP addresses",
+            "To encrypt websites"
+        ],
+        answer: 2,
+        explanation: "DNS connects domain names to numerical IP addresses, making the Internet easier to use."
+    },
+
+    {
+        question: "What was NSFNET originally created to connect?",
+        choices: [
+            "Mobile phones",
+            "Researchers with supercomputer centers",
+            "Web browsers",
+            "Email servers"
+        ],
+        answer: 1,
+        explanation: "NSFNET was launched to connect researchers with supercomputer centers and later became an important Internet backbone."
+    },
+
+    {
+        question: "In which year was the original ARPANET officially shut down?",
+        choices: [
+            "1983",
+            "1986",
+            "1990",
+            "1995"
+        ],
+        answer: 2,
+        explanation: "The original ARPANET was officially shut down in 1990."
+    },
+
+    {
+        question: "Who proposed the World Wide Web in 1989?",
+        choices: [
+            "Ray Tomlinson",
+            "Tim Berners-Lee",
+            "Vint Cerf",
+            "Bob Kahn"
+        ],
+        answer: 1,
+        explanation: "Tim Berners-Lee proposed the World Wide Web in 1989."
+    },
+
+    {
+        question: "Which technology was developed as one of the core technologies of the early Web?",
+        choices: [
+            "HTML",
+            "DNS",
+            "ARPANET",
+            "Wi-Fi"
+        ],
+        answer: 0,
+        explanation: "HTML was one of the core technologies developed for the World Wide Web."
+    },
+
+    {
+        question: "What was Mosaic important for?",
+        choices: [
+            "It helped make the Web more accessible to users",
+            "It replaced TCP/IP",
+            "It created ARPANET",
+            "It introduced email"
+        ],
+        answer: 0,
+        explanation: "The Mosaic browser helped make the World Wide Web more accessible and popular."
+    },
+
+    {
+        question: "What organization was created in 1994 to help develop Web standards?",
+        choices: [
+            "DARPA",
+            "NSF",
+            "W3C",
+            "ITU"
+        ],
+        answer: 2,
+        explanation: "The World Wide Web Consortium (W3C) was founded in 1994 to help develop Web standards."
+    },
+
+    {
+        question: "Which two technologies became important parts of Web development during the 1990s?",
+        choices: [
+            "JavaScript and CSS",
+            "DNS and ARPANET",
+            "TCP and NSFNET",
+            "Wi-Fi and 5G"
+        ],
+        answer: 0,
+        explanation: "JavaScript and CSS became important technologies for adding behavior and styling to Web pages."
+    },
+
+    {
+        question: "What does HTML mainly describe?",
+        choices: [
+            "The structure of a Web page",
+            "The physical Internet cables",
+            "The IP address of a server",
+            "The speed of a network"
+        ],
+        answer: 0,
+        explanation: "HTML is used to structure the content of Web pages."
+    },
+
+    {
+        question: "What is the main purpose of CSS?",
+        choices: [
+            "To assign IP addresses",
+            "To style and present Web pages",
+            "To send email",
+            "To create domain names"
+        ],
+        answer: 1,
+        explanation: "CSS is used to control the presentation and appearance of Web pages."
+    },
+
+    {
+        question: "What is the main purpose of JavaScript on the Web?",
+        choices: [
+            "To replace HTML",
+            "To provide interactivity and dynamic behavior",
+            "To create IP addresses",
+            "To connect physical networks"
+        ],
+        answer: 1,
+        explanation: "JavaScript is mainly used to add interactivity and dynamic behavior to Web pages."
+    },
+
+    {
+        question: "What is the main difference between the Internet and the Web?",
+        choices: [
+            "They are exactly the same thing",
+            "The Internet is the network infrastructure, while the Web is a service that uses it",
+            "The Web existed before the Internet",
+            "The Internet is only used for websites"
+        ],
+        answer: 1,
+        explanation: "The Internet is the global network infrastructure, while the Web is a system of interconnected resources that operates over the Internet."
+    },
 
 ];
 // ======================================================
