@@ -1,28 +1,19 @@
-/* ==================================================
-   WEB PROGRAMMING PORTFOLIO
-   Editorial Engineering Design
-   Mobile First
-   ================================================== */
-
-
-/* ==================================================
-   ROOT VARIABLES
-   ================================================== */
-
 :root {
-    /* Kept for form_style.css */
     --color-navy: #102a43;
     --color-navy-light: #243b53;
     --color-blue: #155eef;
-    --color-white: #ffffff;
+    --color-white: #fff;
     --color-background: #f6f7f9;
     --color-text: #17202a;
     --color-text-light: #627080;
     --color-border: #d9e0e7;
 
     --font-main: Arial, Helvetica, sans-serif;
+    --font-heading: Arial, Helvetica, sans-serif;
+    --font-size-body: 1rem;
+    --font-size-heading: 1.55rem;
 
-    --spacing-small: 0.5rem;
+    --spacing-small: .5rem;
     --spacing-medium: 1rem;
     --spacing-large: 2rem;
     --spacing-xlarge: 3rem;
@@ -30,30 +21,20 @@
     --radius-small: 5px;
     --radius-medium: 10px;
 
-    /* Main design */
     --ink: #101820;
     --navy-dark: #061522;
     --navy: #102a43;
     --cobalt: #155eef;
     --cobalt-dark: #0b47c9;
-
     --blue-soft: #e8f0ff;
     --blue-pale: #f3f7ff;
-
-    --surface: #ffffff;
+    --surface: #fff;
     --surface-soft: #f6f7f9;
-
     --line: #d9e0e7;
     --line-dark: #b9c4cf;
-
-    --shadow-small: 0 8px 24px rgba(10, 25, 41, 0.07);
-    --shadow-medium: 0 16px 40px rgba(10, 25, 41, 0.10);
+    --shadow-small: 0 8px 24px rgba(10,25,41,.07);
+    --shadow-medium: 0 16px 40px rgba(10,25,41,.1);
 }
-
-
-/* ==================================================
-   RESET
-   ================================================== */
 
 * {
     box-sizing: border-box;
@@ -67,15 +48,18 @@ html {
 body {
     margin: 0;
     min-width: 0;
-
     font-family: var(--font-main);
-    font-size: 1rem;
+    font-size: var(--font-size-body);
     line-height: 1.7;
-
     color: var(--color-text);
     background: var(--color-background);
-
     overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
 }
 
 img {
@@ -83,243 +67,144 @@ img {
 }
 
 
-/* ==================================================
-   HEADER
-   Engineering Blueprint Hero
-   ================================================== */
+/* Header */
 
 header {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-
     min-height: 420px;
-
     padding: 3rem 1.5rem;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #061522 0%,
-            #0a1d30 58%,
-            #102d49 100%
-        );
-
+    background: linear-gradient(135deg,#061522,#0a1d30 58%,#102d49);
     border-bottom: 5px solid var(--cobalt);
-
     text-align: center;
 }
 
-
-/* Large background GIN446 */
-
 header::before {
     content: "GIN446";
-
     position: absolute;
     z-index: -1;
-
     right: -1rem;
     bottom: -2rem;
-
-    color: rgba(255, 255, 255, 0.035);
-
+    color: rgba(255,255,255,.035);
     font-size: 7rem;
     font-weight: 900;
     line-height: 1;
-    letter-spacing: -0.07em;
-
+    letter-spacing: -.07em;
     pointer-events: none;
 }
 
-
-/* Cobalt geometric decoration */
-
 header::after {
     content: "";
-
     position: absolute;
     z-index: -1;
-
     width: 180px;
     height: 180px;
-
     top: -105px;
     right: -95px;
-
     border: 26px solid var(--cobalt);
-
     transform: rotate(45deg);
-
-    opacity: 0.95;
 }
-
-
-/* ---------- Logo ---------- */
 
 header img {
     position: relative;
     z-index: 2;
-
     display: block;
-
     width: 220px;
     height: auto;
-
     margin: 0 auto 2.25rem;
-
-    padding: 0;
-
-    background: #ffffff;
-
-    border: 0;
-
-    outline: 1px solid rgba(255, 255, 255, 0.2);
+    background: #fff;
+    outline: 1px solid rgba(255,255,255,.2);
     outline-offset: 8px;
-
-    box-shadow:
-        12px 12px 0 var(--cobalt),
-        0 25px 55px rgba(0, 0, 0, 0.35);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    box-shadow: 12px 12px 0 var(--cobalt),0 25px 55px rgba(0,0,0,.35);
+    transition: transform .3s ease,box-shadow .3s ease;
 }
 
 header img:hover {
-    transform: translate(-3px, -3px);
-
-    box-shadow:
-        16px 16px 0 var(--cobalt),
-        0 30px 60px rgba(0, 0, 0, 0.4);
+    transform: translate(-3px,-3px);
+    box-shadow: 16px 16px 0 var(--cobalt),0 30px 60px rgba(0,0,0,.4);
 }
-
-
-/* ---------- Header Title ---------- */
 
 header h1 {
     position: relative;
     z-index: 2;
-
     max-width: 800px;
-
     margin: 0;
-
-    color: #ffffff;
-
+    color: #fff;
     font-size: 2rem;
     font-weight: 800;
     line-height: 1.08;
-    letter-spacing: -0.045em;
+    letter-spacing: -.045em;
 }
 
 header h1::after {
     content: "";
-
     display: block;
-
     width: 70px;
     height: 4px;
-
     margin: 1.25rem auto 0;
-
     background: var(--cobalt);
 }
-
-
-/* ---------- Header Subtitle ---------- */
 
 header p {
     position: relative;
     z-index: 2;
-
     max-width: 620px;
-
     margin: 1.25rem 0 0;
-
     color: #b8c9da;
-
-    font-size: 0.95rem;
+    font-size: .95rem;
     line-height: 1.6;
 }
 
 
-/* ==================================================
-   MAIN WEBSITE NAVIGATION
-   ================================================== */
+/* Main navigation */
 
 body > nav {
     position: relative;
     z-index: 20;
-
-    background: #ffffff;
-
+    background: #fff;
     border-bottom: 1px solid var(--line);
-
-    box-shadow: 0 5px 20px rgba(10, 25, 41, 0.06);
+    box-shadow: 0 5px 20px rgba(10,25,41,.06);
 }
 
 body > nav ul {
     display: flex;
     flex-direction: column;
-
     max-width: 1180px;
-
     margin: 0 auto;
     padding: 0;
-
     list-style: none;
-}
-
-body > nav li {
-    position: relative;
 }
 
 body > nav a {
     position: relative;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     min-height: 48px;
-
-    padding: 0.7rem 1rem;
-
+    padding: .7rem 1rem;
     color: var(--navy);
-
-    font-size: 0.86rem;
+    font-size: .86rem;
     font-weight: 700;
-
     text-align: center;
     text-decoration: none;
-
-    transition:
-        color 0.25s ease,
-        background-color 0.25s ease;
+    transition: color .25s ease,background-color .25s ease;
 }
 
 body > nav a::after {
     content: "";
-
     position: absolute;
-
     left: 50%;
     bottom: 6px;
-
     width: 0;
     height: 3px;
-
     background: var(--cobalt);
-
     transform: translateX(-50%);
-
-    transition: width 0.25s ease;
+    transition: width .25s ease;
 }
 
 body > nav a:hover {
@@ -332,149 +217,98 @@ body > nav a:hover::after {
 }
 
 
-/* ==================================================
-   MAIN CONTENT
-   ================================================== */
+/* Main */
 
 main {
     width: 92%;
     max-width: 1180px;
-
     margin: 0 auto;
-
     padding: 3.5rem 0 4rem;
 }
 
-
-/* ---------- Main Page Title ---------- */
-
 main > h1 {
     position: relative;
-
     max-width: 950px;
-
     margin: 0 0 2.5rem;
-
     padding-bottom: 1.1rem;
-
     color: var(--ink);
-
     font-size: 2.15rem;
     line-height: 1.05;
-    letter-spacing: -0.045em;
+    letter-spacing: -.045em;
 }
 
 main > h1::before {
     content: "GIN446 / WEB PROGRAMMING";
-
     display: block;
-
-    margin-bottom: 0.7rem;
-
+    margin-bottom: .7rem;
     color: var(--cobalt);
-
-    font-size: 0.68rem;
+    font-size: .68rem;
     font-weight: 800;
-    letter-spacing: 0.16em;
+    letter-spacing: .16em;
 }
 
 main > h1::after {
     content: "";
-
     position: absolute;
-
     left: 0;
     bottom: 0;
-
     width: 105px;
     height: 4px;
-
     background: var(--cobalt);
 }
 
-
-/* ==================================================
-   GENERAL SECTIONS
-   ================================================== */
-
 section {
     position: relative;
-
     margin-bottom: 4.5rem;
 }
 
 section h2 {
     margin: 0 0 1.6rem;
-
     color: var(--ink);
-
-    font-size: 1.55rem;
+    font-size: var(--font-size-heading);
     line-height: 1.2;
-    letter-spacing: -0.025em;
+    letter-spacing: -.025em;
 }
 
 section h2::before {
     content: "";
-
     display: inline-block;
-
     width: 25px;
     height: 3px;
-
-    margin-right: 0.65rem;
-    margin-bottom: 0.3rem;
-
+    margin-right: .65rem;
+    margin-bottom: .3rem;
     background: var(--cobalt);
 }
 
 
-/* ==================================================
-   HISTORY PAGE OVERVIEW
-   ================================================== */
+/* Overview */
 
 #overview {
     position: relative;
     overflow: hidden;
-
     margin-bottom: 0;
-
     padding: 2rem 1.5rem;
-
-    background:
-        linear-gradient(
-            135deg,
-            #071625,
-            #102a43
-        );
-
+    background: linear-gradient(135deg,#071625,#102a43);
     border-left: 5px solid var(--cobalt);
-
-    color: var(--color-white);
+    color: #fff;
 }
 
 #overview::after {
     content: "";
-
     position: absolute;
-
     width: 150px;
     height: 150px;
-
     right: -90px;
     bottom: -90px;
-
-    border: 18px solid rgba(21, 94, 239, 0.28);
-
+    border: 18px solid rgba(21,94,239,.28);
     transform: rotate(45deg);
 }
 
 #overview h2 {
     position: relative;
     z-index: 1;
-
-    margin-bottom: 0.8rem;
-
-    color: var(--color-white);
+    margin-bottom: .8rem;
+    color: #fff;
 }
 
 #overview h2::before {
@@ -484,76 +318,51 @@ section h2::before {
 #overview p {
     position: relative;
     z-index: 1;
-
     max-width: 760px;
-
     margin: 0;
-
     color: #dce6f1;
-
     font-size: 1rem;
 }
 
 
-/* ==================================================
-   INTERNAL SECTION NAVIGATION
-   ================================================== */
+/* Internal navigation */
 
 .section-nav {
     position: relative;
     z-index: 10;
-
     display: flex;
     flex-wrap: wrap;
-
     margin: 0 0 4rem;
-
-    background: var(--color-white);
-
+    background: #fff;
     border: 1px solid var(--line);
     border-top: 0;
-
     box-shadow: var(--shadow-small);
 }
 
 .section-nav a {
     position: relative;
-
     display: block;
-
     padding: 1rem 1.15rem;
-
     color: var(--navy);
-
-    font-size: 0.78rem;
+    font-size: .78rem;
     font-weight: 800;
-    letter-spacing: 0.04em;
-
+    letter-spacing: .04em;
     text-decoration: none;
     text-transform: uppercase;
-
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease;
+    transition: color .2s ease,background-color .2s ease;
 }
 
 .section-nav a::after {
     content: "";
-
     position: absolute;
-
     left: 1.15rem;
     right: 1.15rem;
     bottom: 0;
-
     height: 3px;
-
     background: var(--cobalt);
-
     transform: scaleX(0);
     transform-origin: left;
-
-    transition: transform 0.25s ease;
+    transition: transform .25s ease;
 }
 
 .section-nav a:hover {
@@ -566,38 +375,24 @@ section h2::before {
 }
 
 
-/* ==================================================
-   HISTORY
-   Editorial Design - No Timeline
-   ================================================== */
+/* History */
 
 #history {
     position: relative;
-
     margin-bottom: 5rem;
 }
 
 #history > h2 {
     margin-bottom: 2.25rem;
-
     font-size: 1.8rem;
 }
 
-
-/* ---------- History Articles ---------- */
-
 #history article {
     position: relative;
-
     margin: 0;
-
     padding: 1.7rem 0;
-
     border-top: 1px solid var(--line);
-
-    transition:
-        padding-left 0.25s ease,
-        border-color 0.25s ease;
+    transition: padding-left .25s ease,border-color .25s ease;
 }
 
 #history article:last-child {
@@ -605,59 +400,39 @@ section h2::before {
 }
 
 #history article:hover {
-    padding-left: 0.5rem;
+    padding-left: .5rem;
     border-color: var(--cobalt);
 }
 
-
-/* ---------- Milestone Heading ---------- */
-
 #history article h3 {
     position: relative;
-
-    margin: 0 0 0.75rem;
-
+    margin: 0 0 .75rem;
     color: var(--ink);
-
     font-size: 1.25rem;
     line-height: 1.2;
-    letter-spacing: -0.025em;
+    letter-spacing: -.025em;
 }
 
 #history article h3::before {
     content: "";
-
     display: inline-block;
-
     width: 9px;
     height: 9px;
-
-    margin-right: 0.7rem;
-
+    margin-right: .7rem;
     background: var(--cobalt);
 }
 
-
-/* ---------- History Text ---------- */
-
 #history article p {
     max-width: 780px;
-
-    margin: 0.55rem 0 0;
-
+    margin: .55rem 0 0;
     color: var(--color-text);
 }
 
 #history article p:last-child {
-    margin-top: 0.9rem;
-
+    margin-top: .9rem;
     color: var(--color-text-light);
-
-    font-size: 0.88rem;
+    font-size: .88rem;
 }
-
-
-/* ---------- Editorial Variations ---------- */
 
 #history article:nth-of-type(4n + 1) {
     padding-right: 1rem;
@@ -665,45 +440,32 @@ section h2::before {
 
 #history article:nth-of-type(4n + 2) {
     margin-left: 1rem;
-
     padding-left: 1rem;
-
     border-left: 3px solid var(--blue-soft);
 }
 
 #history article:nth-of-type(4n + 3) {
     padding: 1.7rem 1rem;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--blue-pale),
-            transparent 85%
-        );
+    background: linear-gradient(90deg,var(--blue-pale),transparent 85%);
 }
 
 #history article:nth-of-type(4n) {
-    margin-left: 0.5rem;
-
+    margin-left: .5rem;
     padding-left: 1rem;
 }
 
 
-/* ==================================================
-   GENERAL ARTICLE CONTENT
-   ================================================== */
+/* General articles */
 
 article h3 {
-    margin: 0 0 0.7rem;
-
+    margin: 0 0 .7rem;
     color: var(--ink);
-
     font-size: 1.15rem;
     line-height: 1.3;
 }
 
 article p {
-    margin: 0.5rem 0 1rem;
+    margin: .5rem 0 1rem;
 }
 
 article p:last-child {
@@ -716,21 +478,13 @@ article a,
 main p,
 main a {
     overflow-wrap: break-word;
-    word-wrap: break-word;
 }
-
-
-/* ==================================================
-   LINKS / SOURCES
-   ================================================== */
 
 main a {
     color: var(--cobalt-dark);
-
     font-weight: 700;
     text-decoration: none;
-
-    transition: color 0.2s ease;
+    transition: color .2s ease;
 }
 
 main a:hover {
@@ -738,10 +492,7 @@ main a:hover {
 }
 
 article p:last-child a {
-    position: relative;
-
     padding-bottom: 2px;
-
     border-bottom: 1px solid #a9c3f8;
 }
 
@@ -750,80 +501,51 @@ article p:last-child a:hover {
 }
 
 
-/* ==================================================
-   KEY TECHNOLOGIES
-   ================================================== */
+/* Technologies */
 
 #technologies {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
-
     margin-bottom: 2rem;
-
     padding: 2rem 1.25rem;
-
-    background:
-        linear-gradient(
-            135deg,
-            #071625,
-            #102a43
-        );
-
+    background: linear-gradient(135deg,#071625,#102a43);
     border-top: 5px solid var(--cobalt);
 }
 
 #technologies > h2 {
     grid-column: 1 / -1;
-
-    margin-bottom: 0.7rem;
-
-    color: var(--color-white);
+    margin-bottom: .7rem;
+    color: #fff;
 }
 
 #technologies > h2::before {
     background: #72a7ff;
 }
 
-
-/* ---------- Technology Articles ---------- */
-
 #technologies article {
     position: relative;
     overflow: hidden;
-
     min-width: 0;
-
     padding: 1.4rem;
-
     background: #10253b;
-
     border: 1px solid #294158;
-
-    transition:
-        transform 0.25s ease,
-        background-color 0.25s ease,
-        border-color 0.25s ease;
+    transition: transform .25s ease,background-color .25s ease,border-color .25s ease;
 }
 
 #technologies article::after {
     content: "";
-
     position: absolute;
-
     width: 35px;
     height: 35px;
-
     right: -19px;
     bottom: -19px;
-
-    border: 6px solid rgba(101, 160, 255, 0.22);
-
+    border: 6px solid rgba(101,160,255,.22);
     transform: rotate(45deg);
 }
 
 #technologies article h3 {
-    color: var(--color-white);
+    color: #fff;
 }
 
 #technologies article p {
@@ -832,8 +554,7 @@ article p:last-child a:hover {
 
 #technologies article p:last-child {
     color: #aebdcb;
-
-    font-size: 0.88rem;
+    font-size: .88rem;
 }
 
 #technologies article a {
@@ -842,23 +563,16 @@ article p:last-child a:hover {
 
 #technologies article:hover {
     transform: translateY(-4px);
-
     background: #132c45;
-
     border-color: #4f82d9;
 }
 
 
-/* ==================================================
-   HOME PAGE
-   Weekly Work / Project Showcase
-   ================================================== */
+/* Weekly Work */
 
 main > section:not(#overview):not(#history):not(#technologies) {
     position: relative;
-
     padding: 0;
-
     background: transparent;
 }
 
@@ -866,70 +580,45 @@ main > section:not(#overview):not(#history):not(#technologies) > h2 {
     margin-bottom: 2rem;
 }
 
-
-/* ---------- Project Grid ---------- */
-
 main > section:not(#overview):not(#history):not(#technologies) ul {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
-
     margin: 0;
     padding: 0;
-
     list-style: none;
 }
-
-
-/* ---------- Project Blocks ---------- */
 
 main > section:not(#overview):not(#history):not(#technologies) li {
     position: relative;
     overflow: hidden;
-
     min-width: 0;
-
     background: var(--surface);
-
     border: 1px solid var(--line);
     border-top: 4px solid var(--navy);
-
     box-shadow: var(--shadow-small);
-
-    transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+    transition: transform .25s ease,border-color .25s ease,box-shadow .25s ease;
 }
 
 main > section:not(#overview):not(#history):not(#technologies) li::before {
     content: "PROJECT";
-
     position: absolute;
-
     top: 1rem;
     right: 1rem;
-
     color: #9aa7b5;
-
-    font-size: 0.6rem;
+    font-size: .6rem;
     font-weight: 800;
-    letter-spacing: 0.15em;
+    letter-spacing: .15em;
 }
 
 main > section:not(#overview):not(#history):not(#technologies) li::after {
     content: "";
-
     position: absolute;
-
     width: 45px;
     height: 45px;
-
     right: -25px;
     bottom: -25px;
-
     background: var(--cobalt);
-
     transform: rotate(45deg);
 }
 
@@ -939,33 +628,22 @@ main > section:not(#overview):not(#history):not(#technologies) li:nth-child(even
 
 main > section:not(#overview):not(#history):not(#technologies) li:hover {
     transform: translateY(-5px);
-
     border-color: #aac3ed;
-
     box-shadow: var(--shadow-medium);
 }
-
-
-/* ---------- Project Links ---------- */
 
 main > section:not(#overview):not(#history):not(#technologies) li a {
     position: relative;
     z-index: 2;
-
     display: flex;
     align-items: flex-end;
-
     width: 100%;
     min-height: 135px;
-
     padding: 2.7rem 1.4rem 1.4rem;
-
     color: var(--ink);
-
     font-size: 1.05rem;
     font-weight: 800;
     line-height: 1.3;
-
     text-decoration: none;
 }
 
@@ -974,93 +652,60 @@ main > section:not(#overview):not(#history):not(#technologies) li a:hover {
 }
 
 
-/* ==================================================
-   FOOTER
-   ================================================== */
+/* Footer */
 
 footer {
     position: relative;
     overflow: hidden;
-
     padding: 2.75rem 1.25rem;
-
-    background:
-        linear-gradient(
-            135deg,
-            #061522,
-            #102a43
-        );
-
+    background: linear-gradient(135deg,#061522,#102a43);
     border-top: 5px solid var(--cobalt);
-
     color: #dce6f1;
-
     text-align: center;
 }
 
 footer::before {
     content: "";
-
     position: absolute;
-
     width: 150px;
     height: 150px;
-
     left: -90px;
     bottom: -95px;
-
-    border: 20px solid rgba(21, 94, 239, 0.18);
-
+    border: 20px solid rgba(21,94,239,.18);
     transform: rotate(45deg);
 }
 
 footer::after {
     content: "";
-
     position: absolute;
-
     width: 80px;
     height: 3px;
-
     top: 1.5rem;
     left: 50%;
-
     background: var(--cobalt);
-
     transform: translateX(-50%);
 }
 
 footer p {
     position: relative;
     z-index: 1;
-
     max-width: 900px;
-
-    margin: 0.45rem auto;
-
-    font-size: 0.82rem;
+    margin: .45rem auto;
+    font-size: .82rem;
 }
 
 
-/* ==================================================
-   TABLET
-   600px AND WIDER
-   ================================================== */
+/* Tablet */
 
 @media (min-width: 600px) {
-
-    /* ---------- Header ---------- */
-
     header {
         min-height: 450px;
-
         padding: 3.5rem 2.5rem;
     }
 
     header::before {
         right: -1rem;
         bottom: -2.5rem;
-
         font-size: 10rem;
     }
 
@@ -1076,9 +721,6 @@ footer p {
         font-size: 1rem;
     }
 
-
-    /* ---------- Main Navigation ---------- */
-
     body > nav ul {
         flex-direction: row;
         flex-wrap: wrap;
@@ -1089,12 +731,8 @@ footer p {
         flex: 1 1 33%;
     }
 
-
-    /* ---------- Main ---------- */
-
     main {
         width: 90%;
-
         padding: 4.5rem 0 5rem;
     }
 
@@ -1106,9 +744,6 @@ footer p {
         font-size: 1.7rem;
     }
 
-
-    /* ---------- Overview ---------- */
-
     #overview {
         padding: 2.5rem;
     }
@@ -1117,15 +752,9 @@ footer p {
         font-size: 1.05rem;
     }
 
-
-    /* ---------- Section Navigation ---------- */
-
     .section-nav a {
         padding: 1rem 1.5rem;
     }
-
-
-    /* ---------- History ---------- */
 
     #history article {
         padding: 2rem 1rem;
@@ -1147,12 +776,8 @@ footer p {
         margin-left: 2%;
     }
 
-
-    /* ---------- Technologies ---------- */
-
     #technologies {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
+        grid-template-columns: repeat(2,minmax(0,1fr));
         padding: 2.5rem;
     }
 
@@ -1164,11 +789,8 @@ footer p {
         grid-column: 1 / -1;
     }
 
-
-    /* ---------- Home Projects ---------- */
-
     main > section:not(#overview):not(#history):not(#technologies) ul {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2,minmax(0,1fr));
     }
 
     main > section:not(#overview):not(#history):not(#technologies) li:first-child {
@@ -1177,177 +799,88 @@ footer p {
 
     main > section:not(#overview):not(#history):not(#technologies) li:first-child a {
         min-height: 175px;
-
         font-size: 1.3rem;
     }
 
-
-    /* ---------- Footer ---------- */
-
     footer p {
-        font-size: 0.9rem;
+        font-size: .9rem;
     }
 }
 
 
-/* ==================================================
-   DESKTOP
-   900px AND WIDER
-   ================================================== */
+/* Desktop */
 
 @media (min-width: 900px) {
-
-    /* ==================================================
-       HEADER
-       Engineering Blueprint Composition
-       ================================================== */
-
     header {
         display: grid;
-
-        grid-template-columns: 310px minmax(0, 1fr);
+        grid-template-columns: 310px minmax(0,1fr);
         grid-template-rows: auto auto;
-
         column-gap: 5rem;
-
         align-items: center;
-
         min-height: 390px;
-
-        padding:
-            4.5rem
-            max(7%, calc((100% - 1180px) / 2));
-
-        background:
-            linear-gradient(
-                110deg,
-                #061522 0%,
-                #091c2e 60%,
-                #102d49 100%
-            );
-
+        padding: 4.5rem max(7%,calc((100% - 1180px)/2));
+        background: linear-gradient(110deg,#061522,#091c2e 60%,#102d49);
         text-align: left;
     }
 
-
-    /* Huge GIN446 background typography */
-
     header::before {
         content: "GIN446";
-
         z-index: 0;
-
-        width: auto;
-        height: auto;
-
         top: auto;
         right: -1rem;
         bottom: -2.5rem;
         left: auto;
-
-        border: 0;
-
-        color: rgba(255, 255, 255, 0.035);
-
+        width: auto;
+        height: auto;
+        color: rgba(255,255,255,.035);
         font-size: 12rem;
         font-weight: 900;
         line-height: 1;
-        letter-spacing: -0.08em;
-
+        letter-spacing: -.08em;
+        border: 0;
         transform: none;
-
-        opacity: 1;
     }
-
-
-    /* Large cobalt geometry */
 
     header::after {
         z-index: 0;
-
         width: 330px;
         height: 330px;
-
         top: -235px;
         right: -145px;
-        left: auto;
-        bottom: auto;
-
         border: 42px solid var(--cobalt);
-
         background: transparent;
-
         transform: rotate(45deg);
-
-        opacity: 1;
     }
-
-
-    /* ---------- Logo ---------- */
 
     header img {
         grid-column: 1;
         grid-row: 1 / 3;
-
         width: 275px;
-
         margin: 0;
-
         justify-self: start;
-
-        background: #ffffff;
-
-        outline: 1px solid rgba(255, 255, 255, 0.25);
+        outline: 1px solid rgba(255,255,255,.25);
         outline-offset: 10px;
-
-        box-shadow:
-            16px 16px 0 var(--cobalt),
-            0 30px 60px rgba(0, 0, 0, 0.35);
+        box-shadow: 16px 16px 0 var(--cobalt),0 30px 60px rgba(0,0,0,.35);
     }
-
-
-    /* ---------- Header Title ---------- */
 
     header h1 {
         grid-column: 2;
-
         max-width: 760px;
-
         margin: 0;
-
-        color: #ffffff;
-
         font-size: 3.25rem;
-        line-height: 1.03;
     }
 
     header h1::after {
         width: 110px;
-
         margin: 1.5rem 0 0;
-
-        background: var(--cobalt);
     }
-
-
-    /* ---------- Header Subtitle ---------- */
 
     header p {
         grid-column: 2;
-
         max-width: 600px;
-
         margin: 1.25rem 0 0;
-
-        color: #b8c9da;
-
         font-size: 1.05rem;
     }
-
-
-    /* ==================================================
-       MAIN NAVIGATION
-       ================================================== */
 
     body > nav ul {
         flex-wrap: nowrap;
@@ -1359,41 +892,25 @@ footer p {
 
     body > nav a {
         min-height: 58px;
-
         padding-left: 1.1rem;
         padding-right: 1.1rem;
     }
 
-
-    /* ==================================================
-       MAIN
-       ================================================== */
-
     main {
         width: 88%;
-        max-width: 1180px;
-
         padding: 5.5rem 0 6rem;
     }
 
     main > h1 {
         max-width: 1000px;
-
         font-size: 3.4rem;
     }
-
-
-    /* ==================================================
-       OVERVIEW
-       ================================================== */
 
     #overview {
         display: flex;
         flex-direction: column;
         justify-content: center;
-
         min-height: 210px;
-
         padding: 3rem 3.5rem;
     }
 
@@ -1403,14 +920,8 @@ footer p {
 
     #overview p {
         max-width: 800px;
-
         font-size: 1.1rem;
     }
-
-
-    /* ==================================================
-       INTERNAL NAVIGATION
-       ================================================== */
 
     .section-nav {
         margin-bottom: 5rem;
@@ -1420,44 +931,27 @@ footer p {
         padding: 1.1rem 1.75rem;
     }
 
-
-    /* ==================================================
-       HISTORY
-       Editorial Desktop Layout
-       ================================================== */
-
     #history {
         display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
+        grid-template-columns: repeat(12,minmax(0,1fr));
         column-gap: 2rem;
-
         margin-bottom: 6rem;
     }
 
     #history > h2 {
         grid-column: 1 / -1;
-
         margin-bottom: 2.5rem;
-
         font-size: 2rem;
     }
 
-
-    /* History event */
-
     #history article {
         grid-column: 1 / -1;
-
         display: grid;
-        grid-template-columns: 32% minmax(0, 1fr);
+        grid-template-columns: 32% minmax(0,1fr);
         column-gap: 3rem;
-
         width: 100%;
-
         margin: 0;
-
         padding: 2.3rem 1rem;
-
         border-left: 0;
     }
 
@@ -1465,105 +959,64 @@ footer p {
         padding-left: 1.4rem;
     }
 
-
-    /* Event heading */
-
     #history article h3 {
         grid-column: 1;
-
         margin: 0;
-
         font-size: 1.5rem;
         line-height: 1.15;
     }
 
-
-    /* Event text */
-
     #history article p {
         grid-column: 2;
-
         max-width: 720px;
-
         margin-top: 0;
     }
 
     #history article p + p {
-        margin-top: 0.9rem;
+        margin-top: .9rem;
     }
-
-
-    /* ---------- Editorial Variations ---------- */
 
     #history article:nth-of-type(4n + 1) {
         width: 100%;
-
         margin-left: 0;
-
         padding-left: 0;
         padding-right: 2rem;
     }
 
     #history article:nth-of-type(4n + 2) {
         width: 97%;
-
         margin-left: 3%;
-
         padding-left: 1.5rem;
-
-        background:
-            linear-gradient(
-                90deg,
-                var(--blue-pale),
-                transparent 70%
-            );
-
+        background: linear-gradient(90deg,var(--blue-pale),transparent 70%);
         border-left: 4px solid var(--cobalt);
     }
 
     #history article:nth-of-type(4n + 3) {
         width: 94%;
-
         margin-left: 6%;
-
         padding-left: 1.5rem;
-
         background: transparent;
     }
 
     #history article:nth-of-type(4n) {
         width: 98%;
-
         margin-left: 2%;
-
         padding-left: 1.5rem;
     }
 
-
-    /* ==================================================
-       KEY TECHNOLOGIES
-       ================================================== */
-
     #technologies {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-
+        grid-template-columns: repeat(6,minmax(0,1fr));
         gap: 1.25rem;
-
         padding: 3rem;
     }
 
     #technologies article {
         grid-column: span 2;
-
         min-height: 190px;
-
         padding: 1.7rem;
     }
 
-    #technologies article:nth-of-type(4n + 1) {
-        grid-column: span 3;
-    }
-
+    #technologies article:nth-of-type(4n + 1),
     #technologies article:nth-of-type(4n + 2) {
         grid-column: span 3;
     }
@@ -1576,36 +1029,21 @@ footer p {
         grid-column: span 4;
     }
 
-
-    /* ==================================================
-       HOME PROJECT SHOWCASE
-       ================================================== */
-
     main > section:not(#overview):not(#history):not(#technologies) ul {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-
+        grid-template-columns: repeat(6,minmax(0,1fr));
         gap: 1.25rem;
     }
 
-
-    /* Project 1 */
-
     main > section:not(#overview):not(#history):not(#technologies) li:nth-child(1) {
         grid-column: span 4;
-
         border-top-width: 6px;
     }
 
     main > section:not(#overview):not(#history):not(#technologies) li:nth-child(1) a {
         min-height: 210px;
-
         padding: 3.5rem 2rem 2rem;
-
         font-size: 1.45rem;
     }
-
-
-    /* Project 2 */
 
     main > section:not(#overview):not(#history):not(#technologies) li:nth-child(2) {
         grid-column: span 2;
@@ -1615,30 +1053,18 @@ footer p {
         min-height: 210px;
     }
 
-
-    /* Project 3 */
-
     main > section:not(#overview):not(#history):not(#technologies) li:nth-child(3) {
         grid-column: span 2;
     }
 
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(3) a {
-        min-height: 165px;
-    }
-
-
-    /* Project 4 */
-
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(4) {
-        grid-column: span 4;
-    }
-
+    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(3) a,
     main > section:not(#overview):not(#history):not(#technologies) li:nth-child(4) a {
         min-height: 165px;
     }
 
-
-    /* Future projects */
+    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(4) {
+        grid-column: span 4;
+    }
 
     main > section:not(#overview):not(#history):not(#technologies) li:nth-child(n + 5) {
         grid-column: span 3;
@@ -1646,13 +1072,9 @@ footer p {
 }
 
 
-/* ==================================================
-   LARGE DESKTOP
-   1200px AND WIDER
-   ================================================== */
+/* Large desktop */
 
 @media (min-width: 1200px) {
-
     header h1 {
         font-size: 3.5rem;
     }

@@ -266,33 +266,33 @@ else {
 // BUILD CORRECTION
 // ======================================================
 function buildCorrection() {
-  
-  let correction = "";
-  //   Build a correction string that includes the question, the user's answer,
-  //   the correct answer, and an explanation for each question.
-  for (let i = 0; i < questions.length; i++) {
-    let userAnswer;
-    if (userAnswers[i] !== undefined) {
-      userAnswer = questions[i].choices[userAnswers[i]];
-    } else {
-      userAnswer = "Not Answered";
+    let correction = "";
+
+    for (let i = 0; i < questions.length; i++) {
+
+        correction += "Question " + (i + 1) + ": " + questions[i].question + "\n";
+
+        if (userAnswers[i] === undefined) {
+            correction += "Your answer: Not Answered\n";
+        } else {
+            correction += "Your answer: " +
+                questions[i].choices[userAnswers[i]] + "\n";
+        }
+
+        correction += "Correct answer: " +
+            questions[i].choices[questions[i].answer] + "\n";
+
+        if (userAnswers[i] === questions[i].answer) {
+            correction += "Result: Correct\n";
+        } else {
+            correction += "Result: Incorrect\n";
+        }
+
+        correction += "Explanation: " +
+            questions[i].explanation + "\n\n";
     }
-    let correctAnswer = questions[i].choices[questions[i].answer];
-    let result;
-    if (userAnswers[i] === questions[i].answer) {
-      result = "Correct";
-    } else {
-      result = "Incorrect";
-    }
-    correction +=
-      "Question " + (i + 1) + ": " + questions[i].question + "\n\n" +
-      "Your answer: " + userAnswer + "\n" +
-      "Correct answer: " + correctAnswer + "\n" +
-      "Result: " + result + "\n" +
-      "Explanation: " + questions[i].explanation + "\n\n" +
-      "────────────────────────────────────────\n\n";
-  }
-  return correction;
+
+    return correction;
 }
 
 
