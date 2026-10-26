@@ -116,11 +116,6 @@ def validate_profile(form):
 
     credits = form.get("credits", "").strip()
     if credits != "":
-     number = to_number(credits)
-     if number is None or number < 0 or number > 148:
-           credits = form.get("credits", "").strip()
-
-    if credits != "":
         number = to_number(credits)
         if number is None or number < 0 or number > 148:
             errors["credits"] = "Credits must be a number between 0 and 148."
@@ -136,6 +131,7 @@ def validate_profile(form):
     internship_completed = form.get("internship_completed", "").strip()   
     if internship_completed != "" and internship_completed not in YESNO:    
      errors["internship_completed"] = "Choose Yes or No."   
+    cleaned["internship_completed"] = internship_completed
 
     graduation_month = form.get("graduation_month", "").strip() 
     if graduation_month != "" and not MONTH.match(graduation_month):

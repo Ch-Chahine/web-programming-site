@@ -118,29 +118,57 @@ def live_quiz():
 
 @app.route("/profile-validated", methods=["GET", "POST"])
 def profile_validated():
- if request.method == "POST":
-    errors, cleaned = validate_profile(request.form)
-    print("VALIDATION ERRORS:", errors)
+    if request.method == "POST":
+        errors, cleaned = validate_profile(request.form)
 
-    if errors:
-      # something's wrong -> re-show the FORM with errors + what was typed
-      return render_template(
+        if errors:
+            return render_template(
+                "profile-form-validated.html",
+                errors=errors,
+                data=request.form,
+                sel_skills=request.form.getlist("skills"),
+                sel_software=request.form.getlist("software")
+            )
+
+        return render_template(
+            "profile_validated.html",
+            data=cleaned,
+            skills=cleaned.get("skills", []),
+            software=cleaned.get("software", [])
+        )
+
+    return render_template(
         "profile-form-validated.html",
-        errors=errors,
-        data=request.form,
-        sel_skills=request.form.getlist("skills"),
-        sel_software=request.form.getlist("software"),
-      )
-    # all good -> show the profile
-    return render_template("profile_validated.html", data=cleaned,
-               skills=cleaned.get("skills", []),
-               software=cleaned.get("software", []))
-  # first visit (GET): empty form
-    return render_template("profile-form-validated.html",
-             errors={}, data={}, sel_skills=[], sel_software=[])
+        errors={},
+        data={},
+        sel_skills=[],
+        sel_software=[]
+    )
+    if request.method == "POST":
+        errors, cleaned = validate_profile(request.form)
 
+        if errors:
+            return render_template(
+                "profile-form-validated.html",
+                errors=errors,
+                data=request.form,
+                sel_skills=request.form.getlist("skills"),
+                sel_software=request.form.getlist("software"),
+            )
 
-if __name__ == "__main__":
-    app.run(debug=True)
+        return render_template(
+            "profile_validated.html",
+            data=cleaned,
+            skills=cleaned.get("skills", []),
+            software=cleaned.get("software", [])
+        )
+
+    return render_template(
+        "profile-form-validated.html",
+        errors={},
+        data={},
+        sel_skills=[],
+        sel_software=[]
+    )
 
 
