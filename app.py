@@ -57,7 +57,7 @@ def home():
         {"week": 5, "title": "JavaScript app", "url": "/quiz"},
         { "week": 6, "title": "JavaScript Form Validation", "url": "/profile-form"},
 {"week": 7,"title": "Live Quiz with Fetch","url": "/live-quiz"},
-{"week": 8, "title": "Server-Side Profile Validation", "url": "/profile-validated"}
+{"week": 8, "title": "Server-Side Profile Validation", "url": "/submit-profile_validation"}
     ]
     return render_template("index.html", weekly_work=weekly_work)
 
@@ -87,6 +87,7 @@ def research():
 
 
 @app.route("/submit-profile", methods=["GET", "POST"])
+@app.route("/submit-profile_validation", methods=["GET", "POST"])
 def submit_profile():
     """
     GET  -> show the profile form (you build templates/profile_form.html).
@@ -94,14 +95,47 @@ def submit_profile():
             (templates/profile.html, which extends your base.html).
     """
     if request.method == "POST":
-        data = request.form.to_dict()                   # all single-value fields
-        skills = request.form.getlist("skills")         # checkboxes -> list
-        software = request.form.getlist("software")     # multiple <select> -> list
+        if request.path == "/submit-profile_validation":
+            errors, cleaned = validate_profile(request.form)
+
+            if errors:
+                return render_template(
+                    "profile-form-validated.html",
+                    errors=errors,
+                    data=request.form,
+                    sel_skills=request.form.getlist("skills"),
+                    sel_software=request.form.getlist("software")
+                )
+
+            return render_template(
+                "profile.html",
+                data=cleaned,
+                skills=cleaned.get("skills", []),
+                software=cleaned.get("software", [])
+            )
+
+        data = request.form.to_dict()
+        skills = request.form.getlist("skills")
+        software = request.form.getlist("software")
+
         return render_template(
-            "profile.html", data=data, skills=skills, software=software
+            "profile.html",
+            data=data,
+            skills=skills,
+            software=software
+        )
+    
+
+   # First visit (GET): show the correct form.
+    if request.path == "/submit-profile_validation":
+        return render_template(
+            "profile-form-validated.html",
+            errors={},
+            data={},
+            sel_skills=[],
+            sel_software=[]
         )
 
-    # First visit (GET): just show the empty form.
     return render_template("profile-form.html")
 
 @app.route("/quiz", methods=["GET", "POST"])
@@ -115,60 +149,4 @@ def profile_form():
 @app.route("/live-quiz")
 def live_quiz():
     return render_template("live_quiz.html")
-
-@app.route("/profile-validated", methods=["GET", "POST"])
-def profile_validated():
-    if request.method == "POST":
-        errors, cleaned = validate_profile(request.form)
-
-        if errors:
-            return render_template(
-                "profile-form-validated.html",
-                errors=errors,
-                data=request.form,
-                sel_skills=request.form.getlist("skills"),
-                sel_software=request.form.getlist("software")
-            )
-
-        return render_template(
-            "profile_validated.html",
-            data=cleaned,
-            skills=cleaned.get("skills", []),
-            software=cleaned.get("software", [])
-        )
-
-    return render_template(
-        "profile-form-validated.html",
-        errors={},
-        data={},
-        sel_skills=[],
-        sel_software=[]
-    )
-    if request.method == "POST":
-        errors, cleaned = validate_profile(request.form)
-
-        if errors:
-            return render_template(
-                "profile-form-validated.html",
-                errors=errors,
-                data=request.form,
-                sel_skills=request.form.getlist("skills"),
-                sel_software=request.form.getlist("software"),
-            )
-
-        return render_template(
-            "profile_validated.html",
-            data=cleaned,
-            skills=cleaned.get("skills", []),
-            software=cleaned.get("software", [])
-        )
-
-    return render_template(
-        "profile-form-validated.html",
-        errors={},
-        data={},
-        sel_skills=[],
-        sel_software=[]
-    )
-
 
