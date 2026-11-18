@@ -64,6 +64,36 @@ h3 {
 
 img {
     max-width: 100%;
+    height: auto;
+}
+
+/* Visible keyboard focus (never outline: none) */
+
+:focus-visible {
+    outline: 3px solid var(--cobalt);
+    outline-offset: 3px;
+}
+
+header :focus-visible,
+footer :focus-visible {
+    outline-color: #fff;  /* blue on navy is hard to see */
+}
+
+/* Skip link: hidden above the page until it gets keyboard focus */
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 100;
+    padding: .6rem 1rem;
+    background: #fff;
+    color: var(--navy);
+    font-weight: 700;
+}
+
+.skip-link:focus {
+    top: 1rem;
 }
 
 
@@ -73,8 +103,8 @@ header {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    min-height: 420px;
-    padding: 3rem 1.5rem;
+    min-height: auto;
+    padding: 2rem 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,9 +144,9 @@ header img {
     position: relative;
     z-index: 2;
     display: block;
-    width: 220px;
+    width: min(160px, 60%);
     height: auto;
-    margin: 0 auto 2.25rem;
+    margin: 0 auto 1.5rem;
     background: #fff;
     outline: 1px solid rgba(255,255,255,.2);
     outline-offset: 8px;
@@ -129,7 +159,7 @@ header img:hover {
     box-shadow: 16px 16px 0 var(--cobalt),0 30px 60px rgba(0,0,0,.4);
 }
 
-header h1 {
+header .site-title {
     position: relative;
     z-index: 2;
     max-width: 800px;
@@ -141,7 +171,7 @@ header h1 {
     letter-spacing: -.045em;
 }
 
-header h1::after {
+header .site-title::after {
     content: "";
     display: block;
     width: 70px;
@@ -172,8 +202,8 @@ body > nav {
 }
 
 body > nav ul {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
     max-width: 1180px;
     margin: 0 auto;
     padding: 0;
@@ -213,6 +243,15 @@ body > nav a:hover {
 }
 
 body > nav a:hover::after {
+    width: 40%;
+}
+
+body > nav a[aria-current="page"] {
+    color: var(--cobalt-dark);
+    background: var(--blue-pale);
+}
+
+body > nav a[aria-current="page"]::after {
     width: 40%;
 }
 
@@ -491,6 +530,12 @@ main a:hover {
     color: var(--cobalt);
 }
 
+/* Links inside paragraphs must not rely on colour alone */
+main p a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 article p:last-child a {
     padding-bottom: 2px;
     border-bottom: 1px solid #a9c3f8;
@@ -580,9 +625,11 @@ main > section:not(#overview):not(#history):not(#technologies) > h2 {
     margin-bottom: 2rem;
 }
 
+/* Weekly Work (and the other card lists): the grid picks 1-4 columns by itself, no breakpoints */
+.weekly-grid,
 main > section:not(#overview):not(#history):not(#technologies) ul {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
     gap: 1rem;
     margin: 0;
     padding: 0;
@@ -605,7 +652,7 @@ main > section:not(#overview):not(#history):not(#technologies) li::before {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    color: #9aa7b5;
+    color: #5f6b78;
     font-size: .6rem;
     font-weight: 800;
     letter-spacing: .15em;
@@ -638,8 +685,8 @@ main > section:not(#overview):not(#history):not(#technologies) li a {
     display: flex;
     align-items: flex-end;
     width: 100%;
-    min-height: 135px;
-    padding: 2.7rem 1.4rem 1.4rem;
+    min-height: 110px;
+    padding: 2.2rem 1.4rem 1.4rem;
     color: var(--ink);
     font-size: 1.05rem;
     font-weight: 800;
@@ -713,22 +760,12 @@ footer p {
         width: 245px;
     }
 
-    header h1 {
+    header .site-title {
         font-size: 2.6rem;
     }
 
     header p {
         font-size: 1rem;
-    }
-
-    body > nav ul {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    body > nav li {
-        flex: 1 1 33%;
     }
 
     main {
@@ -787,10 +824,6 @@ footer p {
 
     #technologies article:nth-of-type(3n) {
         grid-column: 1 / -1;
-    }
-
-    main > section:not(#overview):not(#history):not(#technologies) ul {
-        grid-template-columns: repeat(2,minmax(0,1fr));
     }
 
     main > section:not(#overview):not(#history):not(#technologies) li:first-child {
@@ -863,14 +896,14 @@ footer p {
         box-shadow: 16px 16px 0 var(--cobalt),0 30px 60px rgba(0,0,0,.35);
     }
 
-    header h1 {
+    header .site-title {
         grid-column: 2;
         max-width: 760px;
         margin: 0;
         font-size: 3.25rem;
     }
 
-    header h1::after {
+    header .site-title::after {
         width: 110px;
         margin: 1.5rem 0 0;
     }
@@ -883,11 +916,7 @@ footer p {
     }
 
     body > nav ul {
-        flex-wrap: nowrap;
-    }
-
-    body > nav li {
-        flex: 1 1 auto;
+        grid-template-columns: repeat(5, 1fr);
     }
 
     body > nav a {
@@ -1030,44 +1059,17 @@ footer p {
     }
 
     main > section:not(#overview):not(#history):not(#technologies) ul {
-        grid-template-columns: repeat(6,minmax(0,1fr));
         gap: 1.25rem;
     }
 
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(1) {
-        grid-column: span 4;
+    main > section:not(#overview):not(#history):not(#technologies) li:first-child {
         border-top-width: 6px;
     }
 
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(1) a {
-        min-height: 210px;
-        padding: 3.5rem 2rem 2rem;
+    main > section:not(#overview):not(#history):not(#technologies) li:first-child a {
+        min-height: 150px;
+        padding: 2.5rem 2rem 2rem;
         font-size: 1.45rem;
-    }
-
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(2) {
-        grid-column: span 2;
-    }
-
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(2) a {
-        min-height: 210px;
-    }
-
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(3) {
-        grid-column: span 2;
-    }
-
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(3) a,
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(4) a {
-        min-height: 165px;
-    }
-
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(4) {
-        grid-column: span 4;
-    }
-
-    main > section:not(#overview):not(#history):not(#technologies) li:nth-child(n + 5) {
-        grid-column: span 3;
     }
 }
 
@@ -1075,7 +1077,7 @@ footer p {
 /* Large desktop */
 
 @media (min-width: 1200px) {
-    header h1 {
+    header .site-title {
         font-size: 3.5rem;
     }
 

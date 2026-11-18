@@ -377,6 +377,12 @@ function showResults(score, percentage, message, correction) {
     `Percentage: ${percentage}%`;
   document.getElementById("performanceText").textContent = message;
   document.getElementById("correction").textContent = correction;
+
+  // Success state: move focus to the results heading. The Submit button was just hidden,
+  // so without this keyboard and screen-reader users would be left on nothing.
+  const resultsHeading = document.querySelector("#resultsPanel h2");
+  resultsHeading.tabIndex = -1;
+  resultsHeading.focus();
 }
 
 // ======================================================

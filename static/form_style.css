@@ -182,7 +182,6 @@ textarea {
 
     font-family: var(--font-main);
     font-size: 0.95rem;
-    outline: none;
 
     transition: border-color 0.2s ease,
                 box-shadow 0.2s ease,
@@ -191,7 +190,7 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-    color: #8996a3;
+    color: #6b7785;  /* 4.56:1 on white (was #8996a3, 3.0:1) */
 }
 
 
@@ -388,6 +387,40 @@ button[type="reset"]:hover {
     background: #eef4ff;
     color: var(--color-blue);
     border-color: var(--color-blue);
+}
+
+/* Disabled: shown while the form is submitting, stops double submissions */
+button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ---------- Error messages ---------- */
+
+.error {
+    display: block;
+    color: #b42318;  /* 6.6:1 on white */
+    font-weight: 600;
+}
+
+.error-summary {
+    border-left: 4px solid #b42318;
+    background: #fef3f2;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.error-summary h2 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #b42318;
+}
+
+.error-summary ul {
+    margin: .5rem 0 0;
+    padding-left: 1.25rem;
 }
 
 

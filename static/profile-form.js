@@ -36,7 +36,7 @@ review.className = "review-panel";
 const title = document.createElement("h2");
 title.textContent = "Review Panel";
 review.appendChild(title);
-document.body.appendChild(review);
+form.after(review);  // keep the panel inside <main> (it used to land after the footer)
 form.style.display = "none";
 const studentIdText = document.createElement("p");
 studentIdText.textContent = "Student ID: " + studentId;
@@ -117,13 +117,22 @@ editButton.textContent = "Edit";
 review.appendChild(editButton);
 editButton.addEventListener("click", function() {
     review.remove();
-    form.style.display = "";});
+    form.style.display = "";
+    form.querySelector("input, select, textarea").focus();  // don't leave focus on a removed button
+});
 
 const confirmButton = document.createElement("button");
 confirmButton.type = "button";
 confirmButton.textContent = "Confirm & Submit";
 review.appendChild(confirmButton);
 confirmButton.addEventListener("click", function() {
+    // Loading state: stop double submits while the server answers.
+    confirmButton.disabled = true;
+    confirmButton.textContent = "Submitting…";
     form.submit();});
 
+// Success state: move focus to the review panel so keyboard and screen-reader users
+// land on it (the Submit button they were on is now hidden).
+title.tabIndex = -1;
+title.focus();
 });

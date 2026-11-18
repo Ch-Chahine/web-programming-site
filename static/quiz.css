@@ -217,7 +217,7 @@
 
 .navigation button:focus-visible,
 .submit:focus-visible {
-    outline: 3px solid rgba(21, 94, 239, 0.2);
+    outline: 3px solid var(--color-blue);
     outline-offset: 2px;
 }
 
