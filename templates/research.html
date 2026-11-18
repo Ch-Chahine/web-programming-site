@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+
+{% block title %}Web Programming Research{% endblock %}
+
+{% block content %}
+
+<h1>Web Programming Research</h1>
+
+<section id="overview">
+    <h2>Overview</h2>
+    <p>
+        This page contains research about different topics used in web programming.
+        It covers CSS at-rules, HTML buttons, datalist and select elements,
+        and some important JavaScript terms and functions.
+    </p>
+</section>
+
+<nav class="section-nav">
+    <a href="#overview">Overview</a>
+    <a href="#css-rules">CSS At-Rules</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#lists">Datalist vs Select</a>
+    <a href="#javascript">JavaScript</a>
+</nav>
+
+
+<section id="css-rules">
+    <h2>CSS At-Rules</h2>
+
+    <article>
+        <h3>What are CSS At-Rules?</h3>
+        <p>
+            CSS at-rules are special instructions that start with the @ symbol.
+            They are used to control how CSS behaves in different situations.
+            Some common examples are @media, @import and @keyframes.
+        </p>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Syntax/At-rules">
+            MDN — CSS At-Rules
+        </a>
+    </article>
+
+    <article>
+        <h3>@media</h3>
+        <p>
+            The @media rule is used to apply CSS when certain conditions are met.
+            It is commonly used to change the design depending on the screen size.
+            This is useful when making a website responsive for phones, tablets and desktops.
+        </p>
+
+        <pre><code>@media (min-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+}</code></pre>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40media">
+            MDN — @media
+        </a>
+    </article>
+
+    <article>
+        <h3>@import</h3>
+        <p>
+            The @import rule is used to import styles from another stylesheet.
+            It is normally placed near the beginning of a CSS file.
+        </p>
+
+        <pre><code>@import url("other-style.css");</code></pre>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40import">
+            MDN — @import
+        </a>
+    </article>
+
+    <article>
+        <h3>@keyframes</h3>
+        <p>
+            The @keyframes rule is used when creating CSS animations.
+            It defines the different steps that happen during the animation.
+        </p>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40keyframes">
+            MDN — @keyframes
+        </a>
+    </article>
+</section>
+
+
+<section id="buttons">
+    <h2>&lt;button&gt; vs &lt;input type="button"&gt;</h2>
+
+    <article>
+        <h3>&lt;button&gt;</h3>
+        <p>
+            The button element creates a clickable button on a web page.
+            The text is placed between the opening and closing button tags.
+            It can also contain other HTML content, which makes it more flexible.
+        </p>
+
+        <pre><code>&lt;button type="button"&gt;Click Me&lt;/button&gt;</code></pre>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button">
+            MDN — Button Element
+        </a>
+    </article>
+
+    <article>
+        <h3>&lt;input type="button"&gt;</h3>
+        <p>
+            An input with type="button" also creates a clickable button.
+            Instead of placing the text between two tags, the text of the button
+            is given using the value attribute.
+        </p>
+
+        <pre><code>&lt;input type="button" value="Click Me"&gt;</code></pre>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/button">
+            MDN — Input Button
+        </a>
+    </article>
+
+    <article>
+        <h3>Main Difference</h3>
+        <p>
+            Both can be used as buttons, but the button element is more flexible
+            because it can contain HTML content. The input button uses its value
+            attribute to display its text.
+        </p>
+    </article>
+</section>
+
+
+<section id="lists">
+    <h2>&lt;datalist&gt; vs &lt;select&gt;</h2>
+
+    <article>
+        <h3>&lt;select&gt;</h3>
+        <p>
+            The select element creates a menu containing different options.
+            The user chooses an option from the choices provided in the menu.
+        </p>
+
+        <pre><code>&lt;select&gt;
+    &lt;option&gt;HTML&lt;/option&gt;
+    &lt;option&gt;CSS&lt;/option&gt;
+    &lt;option&gt;JavaScript&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/select">
+            MDN — Select Element
+        </a>
+    </article>
+
+    <article>
+        <h3>&lt;datalist&gt;</h3>
+        <p>
+            The datalist element provides suggested values for an input.
+            The user can select one of the suggestions, but can also enter
+            another value that is not included in the list.
+        </p>
+
+        <pre><code>&lt;input list="languages"&gt;
+
+&lt;datalist id="languages"&gt;
+    &lt;option value="HTML"&gt;
+    &lt;option value="CSS"&gt;
+    &lt;option value="JavaScript"&gt;
+&lt;/datalist&gt;</code></pre>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/datalist">
+            MDN — Datalist Element
+        </a>
+    </article>
+
+    <article>
+        <h3>Main Difference</h3>
+        <p>
+            A select gives the user a menu of options to choose from.
+            A datalist gives suggestions for an input while still allowing
+            the user to enter another valid value.
+        </p>
+    </article>
+</section>
+
+
+<section id="javascript">
+    <h2>JavaScript, JScript and ECMAScript</h2>
+
+    <article>
+        <h3>JavaScript</h3>
+        <p>
+            JavaScript is a programming language commonly used on web pages.
+            It can make a website more dynamic and interactive by allowing
+            the page to react to different actions and events.
+        </p>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">
+            MDN — JavaScript
+        </a>
+    </article>
+
+    <article>
+        <h3>JScript</h3>
+        <p>
+            JScript was Microsoft's implementation of the ECMAScript language.
+            It was mainly associated with older Microsoft web technologies
+            such as Internet Explorer.
+        </p>
+    </article>
+
+    <article>
+        <h3>ECMAScript</h3>
+        <p>
+            ECMAScript is the standard that defines the JavaScript language.
+            It provides rules and features that JavaScript implementations follow.
+            JavaScript is therefore an implementation of the ECMAScript standard.
+        </p>
+
+        <a href="https://ecma-international.org/publications-and-standards/standards/ecma-262/">
+            Ecma International — ECMAScript
+        </a>
+    </article>
+
+    <article>
+        <h3>Calling a JavaScript Function</h3>
+        <p>
+            After a JavaScript function is created, it does not run just because
+            it was defined. The function can be called by writing its name followed
+            by parentheses.
+        </p>
+
+        <pre><code>function welcome() {
+    console.log("Welcome");
+}
+
+welcome();</code></pre>
+
+        <p>
+            In this example, welcome() calls the function. If this line is reached
+            while the script is loading, the function runs without the user needing
+            to click a button.
+        </p>
+
+        <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Functions">
+            MDN — JavaScript Functions
+        </a>
+    </article>
+</section>
+
+{% endblock %}
